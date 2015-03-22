@@ -38,27 +38,27 @@ Table \ref{table:installation} outlines the installation steps for both local an
 
 \begin{table}[ht!]
   \centering
-  \begin{tabular}{|c|c|c|}
+  \begin{tabular}{|p{0.27\columnwidth}|p{0.42\columnwidth}|P{0.21\columnwidth}|}
     \hline
-    \multicolumn{1}{|p{0.3\columnwidth}|}{\centering\tabhead{Installation Step}} &
-    \multicolumn{1}{|p{0.3\columnwidth}|}{\centering\tabhead{Local}} &
-    \multicolumn{1}{|p{0.3\columnwidth}|}{\centering\tabhead{Cloud}} \\
+    \tabhead{Installation Step} &
+    \tabhead{Local} &
+    \tabhead{Cloud} \\
     \hline
-    \multicolumn{1}{|p{0.3\columnwidth}|}{1. download software} &
-    \multicolumn{1}{|p{0.3\columnwidth}|}{git clone or download from website} &
-    \multicolumn{1}{|p{0.3\columnwidth}|}{git clone} \\
+    1. download software &
+    git clone or download from website &
+    git clone \\
     \hline
-    \multicolumn{1}{|p{0.3\columnwidth}|}{2. Install dependencies} & 
-    \multicolumn{1}{|p{0.3\columnwidth}|}{Python, C compiler, Pip, Virtual environment, Python Imaging Library, Memcache, PostgreSQL} &
-    \multicolumn{1}{|p{0.3\columnwidth}|}{Heroku client} \\
+    2. Install dependencies & 
+    Python, C compiler, Pip, Virtual environment, Python Imaging Library, Memcache, PostgreSQL &
+    Heroku client \\
     \hline
-    \multicolumn{1}{|p{0.3\columnwidth}|}{3. Initialize a server instance} &
-    \multicolumn{1}{|p{0.3\columnwidth}|}{initialize\_instance} &
-    \multicolumn{1}{|p{0.3\columnwidth}|}{initialize\_instance --heroku} \\
+    3. Initialize a server instance &
+    initialize\_instance &
+    initialize\_instance --heroku \\
     \hline
-    \multicolumn{1}{|p{0.3\columnwidth}|}{4. Start up the server} &
-    \multicolumn{1}{|p{0.3\columnwidth}|}{manage.py run\_gunicorn} &
-    \multicolumn{1}{|p{0.3\columnwidth}|}{automatically started in previous step} \\
+    4. Start up the server &
+    manage.py run\_gunicorn &
+    automatically started in previous step \\
     \hline
   \end{tabular}
   \caption{Installation process}
@@ -307,7 +307,7 @@ Second, the right side of the diagram illustrates that Makahiki must obtain real
 
 Third, the bottom side illustrates that Makahiki stores its data in a database repository (currently PostgreSQL). To reduce database access and improve performance, Makahiki provides support for caching (currently memcached).
 
-Figure \ref{fig:makahiki-internal-architecture} illustrates the internal architecture of Makahiki. It provides a perspective on Makahiki's internal architecture in terms of three kinds of ``components'': Django-related infrastructure, Widgets, and Managers.
+Figure \ref{fig:makahiki-internal-architecture} illustrates the internal architecture of Makahiki. It provides a perspective on Maka-hiki's internal architecture in terms of three kinds of ``components'': Django-related infrastructure, Widgets, and Managers.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -321,43 +321,33 @@ Managers are modules that provide Makahiki capabilities that do not involve a (p
 
 \begin{table}[ht!]
   \centering
-  \begin{tabular}{|c|c|c|}
+  \begin{tabular}{|P{0.2\columnwidth}|p{0.15\columnwidth}|p{0.55\columnwidth}|}
     \hline
-    \multicolumn{1}{|p{0.2\columnwidth}|}{\centering\tabhead{Manager}} &
-    \multicolumn{1}{|p{0.2\columnwidth}|}{\centering\tabhead{Module Name}} &
-    \multicolumn{1}{|p{0.5\columnwidth}|}{\centering\tabhead{Functionality}} \\
+    \tabhead{Manager} & \tabhead{Module Name} & \tabhead{Functionality} \\
     \hline
-    \multicolumn{1}{|p{0.2\columnwidth}|}{Authentication Manager} &
-    \multicolumn{1}{|p{0.2\columnwidth}|}{auth\_mgr} &
-    \multicolumn{1}{|p{0.5\columnwidth}|}{Provides authentication services for Makahiki including administrative logins and CAS authentication} \\
+    Authentication Manager & auth\_mgr &
+    Provides authentication services for Makahiki including administrative logins and CAS authentication \\
     \hline
-    \multicolumn{1}{|p{0.2\columnwidth}|}{Cache Manager} & 
-    \multicolumn{1}{|p{0.2\columnwidth}|}{cache\_mgr} &
-    \multicolumn{1}{|p{0.5\columnwidth}|}{Manages caching data structures} \\
+    Cache Manager &  cache\_mgr &
+    Manages caching data structures \\
     \hline
-    \multicolumn{1}{|p{0.2\columnwidth}|}{Challenge Manager} &
-    \multicolumn{1}{|p{0.2\columnwidth}|}{challenge\_mgr} &
-    \multicolumn{1}{|p{0.5\columnwidth}|}{Maintains state information about an entire Challenge, including what widgets are enabled, the round information} \\
+    Challenge Manager & challenge\_mgr &
+    Maintains state information about an entire Challenge, including what widgets are enabled, the round information \\
     \hline
-    \multicolumn{1}{|p{0.2\columnwidth}|}{Log Manager} &
-    \multicolumn{1}{|p{0.2\columnwidth}|}{log\_mgr} &
-    \multicolumn{1}{|p{0.5\columnwidth}|}{Provides logging services to track the actions of logged in users} \\
+    Log Manager &  log\_mgr &
+    Provides logging services to track the actions of logged in users \\
     \hline
-    \multicolumn{1}{|p{0.2\columnwidth}|}{Player Manager} &
-    \multicolumn{1}{|p{0.2\columnwidth}|}{player\_mgr} &
-    \multicolumn{1}{|p{0.5\columnwidth}|}{Supports definition and processing of players} \\
+    Player Manager & player\_mgr &
+    Supports definition and processing of players \\
     \hline
-    \multicolumn{1}{|p{0.2\columnwidth}|}{Resource Manager} &
-    \multicolumn{1}{|p{0.2\columnwidth}|}{resource\_mgr} &
-    \multicolumn{1}{|p{0.5\columnwidth}|}{Provides supports for resource management, such as updating energy or water data, checking daily goals} \\
+    Resource Manager & resource\_mgr &
+    Provides supports for resource management, such as updating energy or water data, checking daily goals \\
     \hline
-    \multicolumn{1}{|p{0.2\columnwidth}|}{Score Manager} &
-    \multicolumn{1}{|p{0.2\columnwidth}|}{score\_mgr} &
-    \multicolumn{1}{|p{0.5\columnwidth}|}{Manages score keeping, scoreboard calculation} \\
+    Score Manager &  score\_mgr &
+    Manages score keeping, scoreboard calculation \\
     \hline
-    \multicolumn{1}{|p{0.2\columnwidth}|}{Team Manager} &
-    \multicolumn{1}{|p{0.2\columnwidth}|}{team\_mgr} &
-    \multicolumn{1}{|p{0.5\columnwidth}|}{Support definition and management of teams} \\
+    Team Manager & team\_mgr &
+    Support definition and management of teams \\
     \hline
   \end{tabular}
   \caption{Makahiki Internal Manager Modules}
@@ -495,7 +485,7 @@ Most activities have fixed rewarding points if completed. Creative activities ar
 
 {\em Events} are actions tied to real world meetings. To help organizers gauge interest in events, players can earn points by signing up in advance. Players that do this (and then actually attend the event) earn a signup bonus (typically 2 points). Players can also set up a reminder that is sent to their email and/or their mobile phone before the meeting takes place. At the event, a challenge administrator provides players with ``attendance codes'' printed on slips of paper that can be later entered in the system by the player to get their points. (The paper slips provide a form of verification that the player physically attended the event.) Attendance codes are generated by Makahiki and can only be used once. To discourage players from signing up and not attending, a penalty (typically 2 points) is assessed to players who do not submit an attendance code. If the player submits an attendance code for the event after receiving this penalty, the penalty is reversed. 
 
-To make your SGG more interesting to players, and more pedagogically sophisticated, Makahiki supports the definition of ``{\em Path}'' through the educational content or actions. In most cases, when a new player sees the SGG for the first time, there should only be a few actions available to themâ possibly only one. All of the rest should be locked. Makahiki provide a set of predicates that can be used to define the ``path''. The predicates  determines if an action or level is locked or unlocked for a player, which in term depends on the outcome of another action or multiple other actions. Predicates include: completed a certain number of actions within a category, completed all actions within a category, completed  a certain action, and unlocking of an action or level after a certain date.
+To make your SGG more interesting to players, and more pedagogically sophisticated, Makahiki supports the definition of ``{\em Path}'' through the educational content or actions. In most cases, when a new player sees the SGG for the first time, there should only be a few actions available to themï¿½ possibly only one. All of the rest should be locked. Makahiki provide a set of predicates that can be used to define the ``path''. The predicates  determines if an action or level is locked or unlocked for a player, which in term depends on the outcome of another action or multiple other actions. Predicates include: completed a certain number of actions within a category, completed all actions within a category, completed  a certain action, and unlocking of an action or level after a certain date.
 
 To incentivize players to work together during a challenge, Makahiki also supports ``{\em Social Bonus}''. The social bonus is an optional attribute of any Smart Grid Game action which awards extra points if the player has done the action with someone else. Examples of actions which commonly include a social bonus are: attending an event, recording a song related to energy, or measuring a shower water flow rate. When a player submits a response for a action that supports the social bonus, the player can provide the email address another player who jointly completed the action. Once the other player also completes the task, the social bonus is awarded. Social bonuses are not bi-directional; if the second player does not provide the first player's email address, only the first player will get the social bonus.
 
@@ -864,7 +854,7 @@ Makahiki, as a framework, allows developers to create additional themes. Makahik
 \label{fig:theme-google-less}
 \end{figure}
 
-Once the theme file are created, it should be included in the ``INSTALLED\_THEMES'' section in the settings.py file as shown in the previous Figure \ref{fig:theme-installed}. To see the results of the new theme, Makahiki provides a special page called Òtheme-displayÓ. The developer can use the browser to go to this page to test all of the theme-able elements in a single page. Figure \ref{fig:theme-google-test} illustrates the result of the new theme.
+Once the theme file are created, it should be included in the ``INSTALLED\_THEMES'' section in the settings.py file as shown in the previous Figure \ref{fig:theme-installed}. To see the results of the new theme, Makahiki provides a special page called ï¿½theme-displayï¿½. The developer can use the browser to go to this page to test all of the theme-able elements in a single page. Figure \ref{fig:theme-google-test} illustrates the result of the new theme.
 
 \begin{figure}[!ht]
   \center

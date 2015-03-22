@@ -1,6 +1,6 @@
 %%% Load the new uhthesis document class
-\documentclass[11pt,final,dissertation,actual,subfigure]{uhthesis}
-%\documentclass[11pt,draft,dissertation,actual,subfigure]{uhthesis}
+%\documentclass[11pt,final,dissertation,actual,subfigure]{uhthesis}
+\documentclass[11pt,draft,dissertation,actual,subfigure]{uhthesis}
 
 %% Switch to Times font
 %\usepackage{times}
@@ -55,6 +55,8 @@
 
 %% Adds new functionality for tables
 \usepackage{tabularx}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 %% Create a variable width hrule. From:
 %% http://tex.stackexchange.com/a/3447/22230
@@ -221,7 +223,7 @@ escapeinside={\%*}{*)}          % if you want to add a comment within your code
 %% Presumably this will be one of: May, August, or December.
 \degreemonth{August}
 %% Year of expected graduation.
-\degreeyear{2014}
+\degreeyear{2015}
 %% Type of degree to be conferred.
 \degree{Doctor of Philosophy}
 %% This is the chairperson of your committee. Do not use titles like Dr.
