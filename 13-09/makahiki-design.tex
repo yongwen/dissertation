@@ -1,15 +1,18 @@
 \chapter{Makahiki Design}
 \label{cha:makahiki-design}
 
-This chapter describes the design of the Makahiki, a serious game framework for sustainability. It starts with the overview of Makahiki in section 3.1, followed by the description of the Makahiki system in section 3.2. Section 3.3 describes the architecture of Makahiki, followed by the design features that makes Makahiki an innovated serious game framework.
+This chapter describes the design of the Makahiki, a serious game framework for sustainability. It starts with the overview of Makahiki in Section \ref{sec:makahiki-design-overview}, followed by the description of the Makahiki system in Section \ref{sec:makahiki-design-description}
+. Section \ref{sec:makahiki-design}
+ describes the architecture of Makahiki, followed by the design features that makes Makahiki an innovated serious game framework.
 
 \section{Overview}
+\label{sec:makahiki-design-overview}
 
 Makahiki is an open source ``serious game framework for sustainability''. It provides a framework for creating serious games for the purpose of education and behavioral change regarding energy, water, food, and waste generation and use.
 
-The initial version of Makahiki (Version 1) was developed in support of first Kukui Cup energy challenge \cite{csdl2-10-08} held at the University of Hawaii in Fall, 2011. It was originally developed by George Lee \cite{csdl2-11-01}, Robert Brewers \cite{csdl2-10-08} and myself, with assistance from Greg Burgess, Nathan Dorman. The first version of Makahiki provides the following functionalities to support the energy challenges at the University of Hawaii: a). A synergistic mixture of real-world and virtual world activities to raise  consciousness and literacy regarding energy issues; b). Real-time feedback on energy consumption by residence hall teams; c). Incentives in the form of prizes and raffle games. d). Social networks, both physical (residence hall teams) and virtual (Facebook).
+The initial version of Makahiki (Version 1) was developed in support of the first Kukui Cup energy challenge \cite{csdl2-10-08} held at the University of Hawaii in Fall, 2011. It was originally developed by George Lee \cite{csdl2-11-01}, Robert Brewer \cite{csdl2-10-08} and myself, with assistance from Greg Burgess and Nathan Dorman. The first version of Makahiki provided the following functionalities to support energy challenges at the University of Hawaii: a) A synergistic mixture of real-world and virtual world activities to raise  consciousness and literacy regarding energy issues; b) Real-time feedback on energy consumption by residence hall teams; c) Incentives in the form of prizes and raffle games. d) Social networks, both physical (residence hall teams) and virtual (Facebook).
 
-The current version of Makahiki (Version 2) builds upon the prior version with the purpose of providing a serious game {\bf Framework} for sustainability that enable different organizations to easily create customized serious games in the context of sustainability education and behavioral change. In additional to the features from version 1, the current Makahiki framework includes the following features::
+The current version of Makahiki (Version 2) builds upon the prior version with the purpose of providing a serious game {\bf Framework} for sustainability that enables different organizations to easily create customized serious games in the context of sustainability education and behavioral change. In additional to the features from version 1, the current Makahiki framework includes the following features::
 
 \begin{itemize}
 \item The ability to tailor system functionality to support the requirements of different organizations.
@@ -20,19 +23,20 @@ The current version of Makahiki (Version 2) builds upon the prior version with t
 \item Support for PaaS (Platform as a Service) facilities such as Heroku. This enables organizations to create and deploy challenges without obtaining physical hardware and its requisite IT support.
 \end{itemize}
 
-The closest projects to Makahiki as we knew are the Building Dashboard that supports the Campus Conservation Nationals, which has been used by over 100 schools nationwide in 2014 to implement the energy and water reduction competition program. But unlike Makahiki, the Building Dashboard system does not support for game mechanics, education, or synergy between real and virtual world environments. In addition, it is not open source.
+The closest technology to Makahiki of which we are aware is the Building Dashboard that supports the Campus Conservation Nationals, which has been used by over 100 schools nationwide in 2014 to implement an energy and water reduction competition. But unlike Makahiki, the Building Dashboard system does not support game mechanics, education, or synergy between real and virtual world environments. In addition, it is not open source.
 
-The next section describes the Makahiki system that is viewed by the external users of the system.
+The next section describes Makahiki system as it is viewed by external users of the system, which includes 
 
 \section{System Description}
+\label{sec:makahiki-design-description}
 
 \subsection{Software Installation}
 
-This section describes the installation process of the Makahiki system that is viewed by system administrators. The design goal is to make the installation an easy process and to support multiple installation platforms.
+This section describes the installation process of the Makahiki system from the perspective of system administrators. The design goal is to make installation an easy process and to support multiple installation platforms.
 
 Makahiki supports two forms of installation: local (on your own machine) and cloud-based (to the Heroku application hosting service). Organizations can install Makahiki locally if they wish to host the system themselves. This requires sufficient hardware resources and IT support to do the installation, perform backups, and monitor the system during the challenge and deal with any outages that occur.
 
-Organizations can instead choose to host Makahiki with Heroku. This incurs a cost (we estimate from \$50-\$100 per month of the challenge), but has the benefit that no hardware or IT resources are required.
+Organizations can instead choose to host Makahiki with Heroku. This incurs a cost (we estimate from \$50-\$150 per month of during the challenge, depending on the number of players), but has the benefit that no hardware or IT resources are required.
 
 Table \ref{table:installation} outlines the installation steps for both local and cloud environments. 
 
@@ -48,7 +52,7 @@ Table \ref{table:installation} outlines the installation steps for both local an
     git clone or download from website &
     git clone \\
     \hline
-    2. Install dependencies & 
+    2. Install tools and dependencies & 
     Python, C compiler, Pip, Virtual environment, Python Imaging Library, Memcache, PostgreSQL &
     Heroku client \\
     \hline
@@ -65,7 +69,7 @@ Table \ref{table:installation} outlines the installation steps for both local an
   \label{table:installation}
 \end{table}
 
-The main difference between local and cloud installation is the step 2, dependency install. For local install, all the dependencies will need to be installed manually by the system administrators, including the C compiler, some tools such as Pip and Virtual environment, the Python imaging library, memcache as the caching system, and finally the PostgreSQL database, as well as the configuration of the database. This requires adequate skills from system administrators. On the other hand, the Cloud installation for the dependency step only requires the installation of a single Heroku client. In the case of cloud installation, all the Makahiki dependencies is satisfied by the instance created in the Heroku cloud, thus minimizes the involvement of system administrators.
+The main difference between local and cloud installation is step 2, ``Install tools and dependencies''. For local install, all the tools and dependencies will need to be installed manually by the system administrators, including the C compiler, Pip and Virtual environment, Python imaging library, memcache as the caching system, and finally the PostgreSQL database, as well as the configuration of the database. This requires adequate skills from system administrators. On the other hand, the cloud installation only requires the installation of a single Heroku client. In the case of cloud installation, all  Makahiki dependencies are satisfied by the instance created in the Heroku cloud, thus minimizing the involvement of system administrators.
 
 \clearpage
 
@@ -130,7 +134,7 @@ There are three UI components in the home pages that are also appear on every pa
 \subsubsection{Get Nutz Page}
 The ``Get Nutz'' page provides the user interface to the primary sustainability education game, also known as the ``Smart Grid Game''. Players gain points by clicking on cells in the Smart Grid UI widget, which takes them to the online or real-world educational actions such as activities, commitments and events.
 
-Figure \ref{fig:makahiki-getnutz} shows an example of the Get Nutz page (the name of this page and any other top-level page can be configured by site administrators):
+\autoref{fig:makahiki-getnutz} shows an example of the Get Nutz page (the name of this page and any other top-level page can be configured by the game designer).
 
 \begin{figure}[!ht]
 \begin{center}
@@ -140,7 +144,17 @@ Figure \ref{fig:makahiki-getnutz} shows an example of the Get Nutz page (the nam
 \label{fig:makahiki-getnutz}
 \end{figure}
 
-The page also provides widgets about upcoming events and a scoreboard showing point leaders. Clicking on the link in the middle of the smart grid game takes the player to a page explaining that educational action. 
+The page also provides widgets about upcoming events and a scoreboard showing top scored leaders. The set of widgets appearing on this page is configurable. The game designer can use the game design admin interface to customized what widgets to include and where the widgets appear. 
+
+Clicking on the link in the middle of the smart grid game takes the player to a page explaining that educational action.  \autoref{fig:makahiki-action} shows an example of the action page. 
+
+\begin{figure}[!ht]
+\begin{center}
+\epsfig{file=guided-tour-excursion, width=0.7\columnwidth}
+\end{center}
+\caption{Action Page}
+\label{fig:makahiki-action}
+\end{figure}
 
 \clearpage
 
@@ -214,7 +228,7 @@ The ``Profile'' page provides access to profile information for this player, as 
 
 The user can set their display name, their picture, and how they wish to be contacted for reminders. It also shows information about their badges and a complete record of how they earned all of the points in the game.
 
-The profile page also allows them to change the theme associated with the site. A variety of themes are available. In this configuration, the default theme is ``Forest'', but the user can go to the Profile page to set a different them for their own use. 
+The profile page also allows them to change the theme associated with the site. A variety of themes are available. In this configuration, the default theme is ``Forest'', but users can go to the Profile page to set a different theme for their own personal preferences. 
 
 \clearpage
 
@@ -284,6 +298,7 @@ The Status page is designed to help administrators to monitor the progress of th
 \clearpage
 
 \section{System Design}
+\label{sec:makahiki-design}
 
 \subsection{Architecture}
 
@@ -429,7 +444,7 @@ The goal for each team is typically a percent reduction from their baseline usag
 
 While the stoplight visualization provides good feedback to a team regarding their current progress toward making the current day's goal, we have found additional perspectives to also be useful.
 
-One useful perspective to a team is a realtime power meter visualization that shows the current power usage of a team, as shown in Figure\ref{fig:PowerMeter}.
+One useful perspective to a team is a realtime power meter visualization that shows the current power usage of a team, as shown in \autoref{fig:PowerMeter}.
 
 \begin{figure}[!ht]
   \center
@@ -440,7 +455,7 @@ One useful perspective to a team is a realtime power meter visualization that sh
 
 This visualization displays the realtime power consumption which updates in a specified interval. This give players the sense of energy consumption at the moment. For example, someone turns on a high power microwave, they might see a spike in the realtime power meter reflecting the power usage at that moment.
 
-Another useful perspective to a team is a historical, calendar-based visualization that shows the results of the energy goal game for each day of the current round, as shown in Figure\ref{fig:degg-calendar}.
+Another useful perspective to a team is a historical, calendar-based visualization that shows the results of the energy goal game for each day of the current round, as shown in \autoref{fig:degg-calendar}.
 
 \begin{figure}[!ht]
   \center
@@ -646,13 +661,13 @@ Designers can configure the quests for a particular challenge by using Quest Gam
 
 \subsubsection{Badge Game Mechanics}
 
-Makahiki provides the badge game mechanics to motivate and engage players. The badge mechanics is implemented in a customizable way which game designers could create as many badges as they like. The badge could be triggered by certain award condition, which is defined by the flexible predicative system in Makahiki. 
+Makahiki provides the badge game mechanics to motivate and engage players. The badge mechanics is implemented in a customizable way so that  game designers can create as many badges as they like. Each badge can be triggered by the achievement of a certain award condition, which is defined by the flexible predicate system in Makahiki. 
 
 Badges are a common game mechanic, in which players receive recognition for various accomplishments. Makahiki allows the challenge designer to specify the set of badges available in a challenge, and to define new ones. The challenge designer has the option of making badges worth points. Finally, the designer can use the Makahiki predicate system to award a badge automatically (for example, when a player has completed a Level in the Smart Grid Game), or manually award the badge through administrator action (for example, when a player reports a significant bug in the system).
 
-In many systems, each badge has a custom design, but in Makahiki, we decided that the overhead of providing a custom graphic for each badge outweighed the benefits. Providing a custom graphic also would creates complexity with another feature of Makahiki: the ability to create ``themes'' with different colors. To be consistence with the themes in Makahiki, badges have a common look and feel consisting of a circle and a multi-character ID. Its actual colors are specified by the theme, and can thus vary from theme to theme.
+In many systems, each badge has a custom design, but in Makahiki, we decided that the overhead of providing a custom graphic for each badge outweighed the benefits. Providing a custom graphic also would creates complexity with another feature of Makahiki: the ability to create ``themes'' with different colors. To be consistent with the themes in Makahiki, badges have a common look and feel consisting of a circle and a multi-character ID. Its actual colors are specified by the theme, and can thus vary from theme to theme.
 
-Figure\ref{fig:badge} shows an example of the badges available in the Makahiki system:
+\autoref{fig:badge} shows an example of the badges available in the Makahiki system:
 
 \begin{figure}[t!]
   \center
@@ -749,7 +764,7 @@ The top widget, User Stats, shows trends in the total number of players, the tot
 \clearpage
 
 \subsection{Responsive mobile support}
-We believe that mobile support is essential for this kind of sustainability challenge, especially for the new generation players. Makahiki implemented the responsive web design technology to support multiple devices, to enhance the players experience. Figure\ref{fig:responsive} shows the responsive interface in Makahiki that supports both desktop view and mobile view with the same code base.
+We believe that mobile support is essential for this kind of sustainability challenge, especially for the new generation players. Makahiki implemented  responsive web design technology to support multiple devices to enhance the player experience. \autoref{fig:responsive} shows the responsive interface in Makahiki that supports both desktop view and mobile view with the same code base.
 
 \begin{figure}[!ht]
   \center
@@ -761,7 +776,7 @@ We believe that mobile support is essential for this kind of sustainability chal
 \clearpage
 
 \subsection{Cloud deployment support}
-Another feature we implement in Makahiki is the ability to deploy to the Cloud platform. Cloud computing has the advantage of simplify IT administration by eliminating the need of acquiring the hardware, installing software etc, thus lower the cost of the software deployment. Figure\ref{fig:heroku} shows a screen shot of the Dashboard showing the 2012 East West center Kukui challenge deployed in the Heroku, one of the cloud platform provider. The monthly cost for the IT infrastructure in this instance is fairly affordable. 
+Another feature we implement in Makahiki is the ability to deploy to a Cloud platform. Cloud computing has the advantage of simplify IT administration by eliminating the need of acquiring the hardware, installing software etc, thus lower the cost of the software deployment. \autoref{fig:heroku} shows a screen shot of the Dashboard showing the 2012 East West center Kukui challenge deployed in the Heroku, one of the cloud platform provider. The monthly cost for the IT infrastructure in this instance is fairly affordable. 
 
 \begin{figure}[!ht]
   \center
