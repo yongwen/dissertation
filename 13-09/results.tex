@@ -1,4 +1,4 @@
-I\chapter{Results}
+\chapter{Results}
 \label{cha:results}
 
 This chapter reports the results of several real world instances of Makahiki implemented in different organizations, as well as the the application of SGSEAM to the Makahiki framework.
@@ -190,45 +190,83 @@ The look and feel of the challenges website are difference between the different
 
 \subsubsection{System Configuration}
 
-The system configuration includes the infrastructure hosting, user authentication, and smart meter connections. 
+The system configuration includes the email server integration, authentication server integration, use Facebook or not, and the smart meter connections. 
 
 \autoref{table:system-configurations} lists the different configurations between the seven real world instances of Makahiki.
 
 \begin{table}[ht!]
   \centering
-  \begin{tabular} {|c|c|c|c|c|c|c|}
+  \begin{tabular} {|c|c|p{0.22\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|P{0.15\linewidth}|}
     \hline
     \tabhead{Instances} &
-    \tabhead{Hosting} &
-    \tabhead{Authentication} &
-    \tabhead{Smart meters} \\
+    \tabhead{Email server} &
+    \tabhead{Authentication server} &
+    \tabhead{Use Facebook} &
+    \tabhead{Smart meters} & 
+    \tabhead{Smart meter model} \\
     \hline
-    UHM2011 & Local & CAS & \checkmark \\
+    UHM2011 & Gmail & UHM CAS & \checkmark & \checkmark & Shark\\
     \hline
-    UHM2012 & Cloud & CAS & \checkmark \\
+    UHM2012 & Gmail & UHM CAS & \checkmark & \checkmark & Shark\\
     \hline
-    UHM2014 & Cloud & CAS & \checkmark \\
+    UHM2014 & Gmail & UHM CAS & \checkmark & \checkmark & Shark\\
     \hline
-    HPU2012 & Local & LDAP & \checkmark \\
+    HPU2012 &  HPU email & HPU LDAP & \checkmark & \checkmark & eGauge\\
     \hline
-    HPU2013 & Local & LDAP & \checkmark \\
+    HPU2013 & HPU email & HPU LDAP & \checkmark & \checkmark & eGauge\\
     \hline
-    EWC2012 & Cloud & CAS \& Internal & \xmark \\
+    EWC2012 & Gmail & UHM CAS\& Internal & \checkmark & \xmark  & \\
     \hline
-    HNS2013 & Cloud & Internal & \xmark \\
+    HNS2013 & Gmail & Internal & \xmark & \xmark & \\
     \hline
   \end{tabular}
   \caption{System Configuration Differences}
   \label{table:system-configurations}
 \end{table}
- 
+
+In order to send emails to the players, Makahiki need to be configured to use a email server to send the emails. In the UHM, EWC and HNS cases, the Gmail server was used to send out emails. In the HPU case, the system admin created a specific email account for the HPU Kukui cup (kukuicup@hpu.edu) in their existing email server, and configured Makahiki to use the HPU email server. 
+
+The IT infrastructure at UH and HPU provided authentication services using CAS (Central Authentication Service) and LDAP, while EWC used the built-in Django authentication.  
+
+Because the HNS instance was targeted for Elementary school, the Facebook integration was turned off in its configuration. In the other instances, the Facebook interactions was turned on and had been used extensively during the game.
+
 UH and HPU used different metering infrastructure, and EWC collected their resource data manually.  Since the
 halls did not have internet-enabled meters, resource consumption data had to be entered by
 the game managers manually.
 
-The IT infrastructure at UH and HPU provided
-authentication services using CAS (Central Authentication Service) and LDAP, while EWC
-used the built-in Django authentication.  
+subsubsection{Hosting Configuration}
+
+Makahiki supported two types of hosting configurations. One is the local hosting where the application runs on the organization's own IT infrastructure. The other is the cloud hosting where the application runs on the Heroku's cloud infrastructure.
+
+\autoref{table:hosting-configurations} lists the different hosting configurations between the seven real world instances of Makahiki.
+
+\begin{table}[ht!]
+  \centering
+  \begin{tabular} {|c|c|c|c|}
+    \hline
+    \tabhead{Instances} &
+    \tabhead{Hosting} &
+    \tabhead{Other cloud services} &
+    \tabhead{Cloud service cost}  \\
+    \hline
+    UHM2011 & Local Mac OS server & & \\
+    \hline
+    UHM2012 & Heroku cloud & Amazon S3 & \$900\\
+    \hline
+    UHM2014 & Heroku cloud & Amazon S3 & \$200\\
+    \hline
+    HPU2012 &  Local Linux server & &\\
+    \hline
+    HPU2013 &  Local Linux server & &\\
+    \hline
+    EWC2012 & Heroku cloud & Amazon S3 & \$50 \\
+    \hline
+    HNS2013 & Heroku cloud & Amazon S3 & \$50 \\
+    \hline
+  \end{tabular}
+  \caption{Hosting Configuration Differences}
+  \label{table:hosting-configurations}
+\end{table}
 
 \section{SGSEAM assessment}
 
@@ -588,20 +626,29 @@ We used two approaches to assess the system administrators' experience with the 
 
 In the in-lab installation study, the participants are the students in a serious game class (ICS691) in the Spring 2012 in the computer science department at the University of Hawaii at Manoa. The students were tasked with installing the Makahiki system into their local computers as well as deploying to the Heroku cloud environment. A Google Form was used to ask the students to record the time they spent completing each step and the problems they encountered. The students also provided feedback about their installation experiences in the form of blog posts. 
 
-There were a total of 8 students who voluntarily participated in the experiments.  The participants were either senior undergraduates or graduate students majoring in Computer Science. The results from the Google Form responses show that the average total time to successfully install
-Makahiki was 1.4 hours, with a maximum time of 2 hours and the minimum time of 0.9 hour.
-\autoref{fig:install-time} shows the average time for each installation step.
+There were a total of 8 students who voluntarily participated in the experiments.  The participants were either senior undergraduates or graduate students majoring in Computer Science. The results from the Google Form responses from the local installation experience show that the average total time to successfully install Makahiki in their local computers was 1.4 hours, with a maximum time of 2 hours and the minimum time of 0.9 hour.
+\autoref{table:local-install-time} and \autoref{fig:local-install-time} shows the average time for each step in the local installation scenario.
 
+\begin{table}[ht!]
+  \centering
+  \begin{tabular}{|p{0.3\linewidth}|P{0.48\linewidth}|p{0.15\linewidth}|}
+    \hline
+    \tabhead{Category} & \tabhead{Installation Tasks} & \tabhead{Average Time (minutes)} \\    \hline    Setup runtime environment & Install Python, C compiler, Git, Pip and Virtual environment & 10.0 \\    \hline    Install dependencies & Install Python Imaging Library, Memcache, required python packages & 29.4 \\    \hline    Install and configure database & Install and configure PostgreSQL & 37.5 \\    \hline    Download the software & git clone from Github & 7.5 \\    \hline    Install the software & setup environment variables, run initialize\_instance script & 26.8 \\    \hline    Start the server and verify & start the server and verify the server running correctly & 2.5 \\   \hline
+    \end{tabular}
+  \caption{Average time (minutes) for local installation steps (n=8)}
+  \label{table:local-install-time}
+\end{table}
+    
 \begin{figure}[ht!]
   \center
   \includegraphics[width=0.7\columnwidth]{install-time}
-  \caption{Average time (minutes) for installation steps (n=8)}
-  \label{fig:install-time}
+  \caption{Average time (minutes) for local installation steps (n=8)}
+  \label{fig:local-install-time}
 \end{figure}
 
 We coded and categorized the descriptive problems reported by the students in both the Google Form
-and their blog posts. \autoref{fig:makahiki-install} shows the result of the analysis from
-the feedback of the 8 students that participated in the experiment.
+and their blog posts. \autoref{fig:local-makahiki-install} shows the result of the analysis from
+the feedback regarding their local installation experiences.
 
 \begin{table}[ht!]
   \centering
@@ -616,19 +663,62 @@ the feedback of the 8 students that participated in the experiment.
     More parts of installation could be covered by install script & 2 \\
     \hline
   \end{tabular}
-  \caption{Makahiki Installation Analysis (n=8)}
-  \label{fig:makahiki-install}
+  \caption{Makahiki local installation issues reported from blog posts (n=8)}
+  \label{fig:local-makahiki-install}
 \end{table}
 
-
-From the above analysis, we identified that the ``Install and configure database'' step has the
+From the above analysis, we identified that the ``Install and configure database'' step of the local installation has the
 longest average time. It is also has the most participant reported problems. This reflects the issues
-encountered by students during the configuration process. This assessment determines the areas for future
-improvement are (1) to improve documentation on DB installation, and (2) to improve the install script to automate
-more installation tasks.
+encountered by students during the installation process. This assessment determines the areas for future
+improvement for the local installation are (1) to improve documentation on DB installation, and (2) to improve the install script to automate more installation tasks.
 
-In summary, SGSEAM identified database installation as a weak point in
-installation.  Otherwise, SGSEAM indicates generally positive results regarding
+The results from the Google Form responses from the Heroku cloud installation revealed different experiences. The average total time to successfully install Makahiki in the Heroku cloud environment was 1.9 hours, with a maximum time of 3.6 hours and the minimum time of 0.7 hour. \autoref{table:heroku-install-time} and \autoref{fig:heroku-install-time} shows the average time for each step in the Heroku cloud installation scenario.
+
+\begin{table}[ht!]
+  \centering
+  \begin{tabular}{|p{0.28\linewidth}|p{0.5\linewidth}|p{0.15\linewidth}|}
+    \hline
+    \tabhead{Category} & \tabhead{Installation Tasks} & \tabhead{Average Time (minutes)} \\    \hline    setup cloud environment & Install Heroku client, add ssh keys to Heroku, verify Heroku account, setup Amazon S3 & 50.6 \\    \hline    download software & git clone from Github & 6.3 \\    \hline    deploy to cloud & setup environment variables, run initialize\_instance script & 39.5 \\    \hline    Start the server and verify & start the server and verify server running correctly & 29.4 \\
+        \hline  \end{tabular}
+  \caption{Average time (minutes) for Cloud installation steps (n=8)}
+  \label{table:heroku-install-time}
+\end{table}
+    
+\begin{figure}[ht!]
+  \center
+  \includegraphics[width=0.7\columnwidth]{install-time-cloud}
+  \caption{Average time (minutes) for Cloud installation steps (n=8)}
+  \label{fig:heroku-install-time}
+\end{figure}
+
+\autoref{fig:heroku-makahiki-install} shows the result of the analysis from
+the blog post feedbacks regarding participants' cloud installation experiences.
+
+\begin{table}[ht!]
+  \centering
+  \begin{tabular}{|p{0.7\columnwidth}|c|}
+    \hline
+    \tabhead{Problem encountered} & \tabhead{Number of participants} \\
+    \hline
+    confusion in setting up Amazon S3 & 5 \\
+    \hline
+    took a long time to upload application to Heroku & 3 \\
+    \hline
+    needing to use the virtual environment is not documented & 3 \\
+    \hline
+    Failure messages are buried in the verbose script output thus overlooked & 2 \\
+    \hline
+  \end{tabular}
+  \caption{Makahiki cloud installation issues reported from blog posts (n=8)}
+  \label{fig:heroku-makahiki-install}
+\end{table}
+
+From the above analysis, we identified that the ``Setup cloud environment'' step has the
+longest average time. It is also has the most participant reported problems regarding the confusion in setting up the Amazon S3. This assessment determines the areas for future
+improvement for the cloud installation are (1) to improve documentation on cloud environment setup, (2) to improve usability of the install script, and (3) develop tools to verify and diagnose the environment setup.
+
+In summary, SGSEAM identified database installation and the documentations as the weak points in
+the process of installing Makahiki.  Otherwise, SGSEAM indicates generally positive results regarding
 Makahiki with respect to installation.
 
 \subsubsection{Post-hoc System Admin Interview}
@@ -905,13 +995,13 @@ The followings are the list of comments and suggestions for ways to enhance the 
 \begin{itemize}
 \item better documentation, add type hierarchy diagram
 \item wished for a bit more of a high-level overview of how widgets should work
-\item no documentation on "subclassing" a widget, mostly have to find out by looking at the source code
-\item had some trouble getting the templates to redirect to the right place ; 
-\item lots of files in the original Prizes folder, and I wasn�t sure what was needed and what wasn�t.
-\item documentation is lacking and confusing, not consistent, the screenshot does not match; The exercise was also rather difficult as some of the documentation is vague or incorrect.�
+\item no documentation on ``subclassing'' a widget, mostly have to find out by looking at the source code
+\item had some trouble getting the templates to redirect to the right place
+\item lots of files in the original Prizes folder, and not sure what was needed and what was not
+\item documentation is lacking and confusing, not consistent, the screenshot does not match; The exercise was also rather difficult as some of the documentation is vague or incorrect.
 \item help topic is hard to change
 \item hard to add widgets to the pages on my Heroku version, how to develop with the heroku instance is not document;   this guide could use more specifics, and updating to adhere to changes in the program.
-\item Sometimes a method returned a dictionary, but the documentation didn�t give the dictionary keys
+\item Sometimes a method returned a dictionary, but the documentation did not give the dictionary keys
 \item It also requires reading and understanding each model; have a database model diagram;
 \item use stackoverflow to get answer for env and Django issues
 \item confusion with INSTALLED\_APPS instead of INSTALLED\_WIDGET\_APPS,
