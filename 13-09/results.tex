@@ -91,7 +91,7 @@ The challenge configuration includes the duration of the challenge, the particip
     \hline
     EWC2012 & 130 & 2 & 2 weeks & 1 & \checkmark  & \checkmark & \xmark & \xmark\\
     \hline
-    HNS2013 & 10 & 2 & 4 weeks & 1 & \xmark & \xmark & \checkmark & \checkmark \\
+    HNS2013 & 10 & 2 & 7 months & 1 & \xmark & \xmark & \checkmark & \checkmark \\
     \hline
   \end{tabular}
   \caption{Challenge Configuration Differences}
@@ -196,7 +196,7 @@ The system configuration includes the email server integration, authentication s
 
 \begin{table}[ht!]
   \centering
-  \begin{tabular} {|c|c|p{0.22\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|P{0.15\linewidth}|}
+  \begin{tabular} {|c|l|P{0.22\linewidth}|P{0.1\linewidth}|P{0.1\linewidth}|P{0.15\linewidth}|}
     \hline
     \tabhead{Instances} &
     \tabhead{Email server} &
@@ -234,39 +234,164 @@ UH and HPU used different metering infrastructure, and EWC collected their resou
 halls did not have internet-enabled meters, resource consumption data had to be entered by
 the game managers manually.
 
-subsubsection{Hosting Configuration}
+\subsection{Cloud Hosting Experiences}
+\label{section:cloud-hosting}
 
 Makahiki supported two types of hosting configurations. One is the local hosting where the application runs on the organization's own IT infrastructure. The other is the cloud hosting where the application runs on the Heroku's cloud infrastructure.
 
-\autoref{table:hosting-configurations} lists the different hosting configurations between the seven real world instances of Makahiki.
+\autoref{table:hosting-configurations} lists the different hosting configurations between the seven real world instances of Makahiki. 
 
 \begin{table}[ht!]
   \centering
-  \begin{tabular} {|c|c|c|c|}
+  \begin{tabular} {|c|c|c|c|c|}
     \hline
     \tabhead{Instances} &
     \tabhead{Hosting} &
     \tabhead{Other cloud services} &
-    \tabhead{Cloud service cost}  \\
+    \tabhead{Duration} &
+    \tabhead{Cloud service cost} \\
     \hline
-    UHM2011 & Local Mac OS server & & \\
+    UHM2011 & Local Mac OS server & N/A & 3 weeks & N/A \\
     \hline
-    UHM2012 & Heroku cloud & Amazon S3 & \$900\\
+    UHM2012 & Heroku cloud & Amazon S3, Memcache & 9 months & \$908\\
     \hline
-    UHM2014 & Heroku cloud & Amazon S3 & \$200\\
+    UHM2014 & Heroku cloud & Amazon S3, Memcache & 2 weeks & \$150\\
     \hline
-    HPU2012 &  Local Linux server & &\\
+    HPU2012 &  Local Linux server & N/A & 3 weeks & N/A\\
     \hline
-    HPU2013 &  Local Linux server & &\\
+    HPU2013 &  Local Linux server & N/A & 3 weeks & N/A\\
     \hline
-    EWC2012 & Heroku cloud & Amazon S3 & \$50 \\
+    EWC2012 & Heroku cloud & Amazon S3, Memcache & 2 weeks & \$9 \\
     \hline
-    HNS2013 & Heroku cloud & Amazon S3 & \$50 \\
+    HNS2013 & Heroku cloud & Amazon S3, Memcache & 7 months & \$146 \\
     \hline
   \end{tabular}
   \caption{Hosting Configuration Differences}
   \label{table:hosting-configurations}
 \end{table}
+
+Although there are some incurred costs in the case of hosting the Makahiki games in the Heroku cloud infrastructure, there is no need for maintaining the local infrastructure, such as keeping the server running, upgrade, patching as well as the locating the physical space for the server. There is no need to allocate IT support staff resource to do the system admin. The long term cost of the managing the local infrastructure is potentially higher. A serious game normally runs for a certain duration, so the organization only needs to pay for the charge for cloud infrastructure during that period.   
+
+The following sections discussed the cloud services Makahiki used and its associated cost:
+
+\subsubsection{Heroku Cloud Service: Dynos and Database}
+
+One major benefit of using the cloud infrastructure is the capability of dynamically adjust the computing resource for the application with scaling up when the usage demand is high and scaling down when the usage demand is low. This can be easily managed in the Heroku cloud infrastructure by the way of adjusting the numbers of Dyno and different type of database allocated to the application. Dynes are the units of computing power on Heroku, isolated containers that run the deployed application. Heroku provides different sizes (computing power) of Dynos and Postgres databases with different pricing \cite{heroku-pricing}. \autoref{table:cloud-configurations} lists the resource allocations to the real world instances of Makahiki in the Heroku cloud infrastructure. At the time of the hosting, there is only one size of dynos which is provisioned as 512MB RAM with 1xCPU Share. They were priced as \$34.50 per month, with the first dyno free of charge.
+
+\begin{table}[ht!]
+  \centering
+  \begin{tabular} {|c|P{0.12\linewidth}|P{0.5\linewidth}|P{0.14\linewidth}|}
+    \hline
+    \tabhead{Instances} &
+    \tabhead{Avg. Number of Dynos} &
+    \tabhead{Database} &
+    \tabhead{ Avg. Monthly Cost} \\
+    \hline
+    UHM2012 & 2.8 & Standard 0:  1 GB RAM, 64 GB storage, 120 connections (\$50/month) & \$100 \\
+    \hline
+    UHM2014 & 4 & Standard 2: 3.5 GB RAM, 256 GB storage, 400 connections (\$200/month) & \$300 \\
+    \hline
+    EWC2012 & 1 & Basic: 10 million rows limit (\$9/month) & \$10 \\
+    \hline
+    HNS2013 & 1.3 & Basic: 10 million rows limit (\$9/month) & \$20 \\
+    \hline
+  \end{tabular}
+  \caption{Heroku Hosting Configuration}
+  \label{table:cloud-configurations}
+\end{table}
+
+Before hosting the Makahiki instances on Heroku, we had to decide what are the appropriate provisions for these instances with acceptable run time performance. 
+We did several performance tests with the Makahiki instance deployed on Heroku, and decided that 5 dynos was sufficient for servicing about 1000 users in the first cloud instance, 2012 UHM Kukui Cup. We did not perform extensive performance testing, knowing that we can always adjust the allocation of dynos during the competition if we observe the dynos are over-loaded or under-utilized. The performance tests where performed using the Apache JMeter \cite{jmeter}. \autoref{fig:performance-test} shows the results of running the tests with 2 dynos against 100 concurrent users and 5 dynos against 250 concurrent users.
+
+\begin{figure}[ht!]
+	\centering
+		\subfigure[2 dynos against 100 concurrent users]{\label{fig:2dynos}\includegraphics[height=2.2in]{2dynos100users}}
+		\subfigure[5 dynos against 250 concurrent users]{\label{fig:5dynos}\includegraphics[height=2.2in]{5dynos250users}}
+		\caption{Performance testing to determine the appropriate number of dynos}
+		\label{fig:performance-test}
+\end{figure}
+
+We configured Heroku cloud-based 2012 UHM instance to run with 5 dynos initially. After 5 days, we noticed that the dynos are not under utilized, so we decreased the number of dynos to 4 and kept it run for about 1 month through the first 2 rounds. During the third round, number of active players decreased, so we scaled down the Heroku dyne further to 2 dynos. At the beginning of the fourth round, we anticipated there may be a surge in website usage because of the new contents available in a new round, we scaled up the dynos to 4 again and found that after a while, the usage was down thus we scaled down the dynos to 2 and kept the game running to the end. \autoref{fig:dynamic-dynos} shows the dynamic dyno allocation during the UHM 2012 instance
+
+\begin{figure}[ht!]
+  \center
+  \includegraphics[width=0.9\columnwidth]{uhm2012-dynos}
+  \caption{Dynamic Heroku dyno allocation during the UHM 2012 instance}
+  \label{fig:dynamic-dynos}
+\end{figure}
+
+In the 2014 UHM instance, which is also deployed on the Heroku cloud infrastructure for the similar size of user base as in the 2012 Kukui Cup, 4 dynos were allocated for the entire duration of the 2 weeks competition because of its short term nature. We also performed a experiment to see if there is any performance difference when using the upgraded``Standard 2'' cloud database. We did not observe any noticeable performance improvement with the upgraded but much more expensive database. We consider the ``Standard 0'' database would be sufficient to support the 2014 instance, thus bring the cost for this kind of Makahiki instance to around $100 per month.
+
+In the case of EWC and HNS instances, because the user based is much smaller, about 130 and 10 users respectively, we used a less expensive ``Basic'' Heroku cloud database and allocated 1 dynos in most of the time to achieve acceptable application performance.
+
+\subsubsection{Amazon S3 Cloud Service}
+
+In additional to the Heroku, Makahiki also integrates with other cloud service such as Amazon S3 \cite{amazons3}. During the deployment, Makahiki stores about 9 MB of static media files on the Amazon S3. During the game, Makahiki use S3 to store all the user uploaded medias such as player profile images, submission files, etc. Depending on the length of the game, number of players,  and the number of submission files, the usage of the S3 storage might be difference from various instances. \autoref{table:s3-usage} shows the Amazon S3 storage usage for the 4 real world Makahiki instances. According to S3 pricing \cite{amazons3}, the charge for the first 1 TB per month is \$0.03 per GB, and \$0.004 per 10,000 GET requests. With this very low cost of using S3, the costs of using S3 for the real world Makahiki instances are neglectable.
+
+\begin{table}[ht!]
+  \centering
+  \begin{tabular} {|c|c|c|}
+    \hline
+    \tabhead{Instances} &
+    \tabhead{Amazon S3 storage} &
+    \tabhead{Cost} \\
+    \hline
+    UHM2012 & 204M & \$0.01 \\
+    \hline
+    UHM2014 & 101M & \$0.008 \\
+    \hline
+    EWC2012 & 11MB & \$0.004 \\
+    \hline
+    HNS2013 & 10MB & \$0.004 \\
+    \hline
+  \end{tabular}
+  \caption{Amazon S3 storage usage for Makahiki instances}
+  \label{table:s3-usage}
+\end{table}
+
+\subsubsection{Memcache Cloud Service}
+
+Another cloud service that Makahiki used is the memcache service. Several memcache services are provided via the Heroku add-ons to the applications hosted on Heroku. By default, Makahiki used the free tier memcache add-on from one of service providers called MemCachier\cite{memcachier}. 
+
+MemCachier's free tier memory cache service is limited to 25MB. Depending on the size of memory cache used by the Makahiki instance, the organization could choose to use a different tier of cache service. In Makahiki, memory cache is mainly used to store the runtime system wide information and the game data from the online active players. The data in the cache has a defined TTL (time to live) value so if the data is not being access after the TTL, they will be removed from the cache. In the cases of the 4 real world Makahiki instances, 25MB is well enough for running the game.
+
+MemCachier provides a simple usage page to monitor the cache usage for your application, as shown in \autoref{fig:memcachier}. We used this tool to identify the cache usage need for the Makahiki instance and monitor a running instance's usage.
+
+\begin{figure}[ht!]
+  \center
+  \includegraphics[width=0.8\columnwidth]{memcachier}
+  \caption{Memory cache usage monitoring}
+  \label{fig:memcachier}
+\end{figure}
+
+\subsubsection{Cloud Monitoring Service}
+
+Makahiki use a useful cloud application monitoring service called NewRelic to help monitoring the game instances that are deployed to Heroku. The monitoring instrument is enabled by using the NewRelic client to start the Makahiki application. Once the monitoring is enabled, we can use the NewRelic service monitoring console to view the runtime metrics of the Makahiki instance. \autoref{fig:newrelic-as} and \autoref{fig:newrelic-db} shows the monitoring screen for the application server metrics and database metrics respectively. Using this kind of monitoring service, we can identify the performance issues from various sources of a running instance.
+
+\begin{figure}[ht!]
+  \center
+  \includegraphics[width=0.9\columnwidth]{newrelic-as}
+  \caption{NewRelic application monitoring}
+  \label{fig:newrelic-as}
+\end{figure}
+
+\begin{figure}[ht!]
+  \center
+  \includegraphics[width=0.9\columnwidth]{newrelic-db}
+  \caption{NewRelic database monitoring}
+  \label{fig:newrelic-db}
+\end{figure}
+
+\subsubsection{Summary}
+
+This section described our experiences with hosting the real world Makahiki instances in the Heroku cloud infrastructure. We compared the different resource provisions for the different instances based on the number of players and the duration of the gams.  Even during the game, the dynamic resource allocation capability of the cloud infrastructure provided a flexible and better utilization to this type of serious game. The areas we need to consider for the cloud infrastructure provisioning are:
+\begin{itemize}
+\item How many dynos / computing units to start with (for horizontal scaling)?
+\item What kind of dynos, 1X or 2X (for vertical scaling)? 
+\item How big / powerful / reliable the database should be? 
+\item How much memory cache do we need?
+\item What are the other cloud service (e.g, S3, monitoring) utilization?
+\end{itemize}
 
 \section{SGSEAM assessment}
 
@@ -631,9 +756,22 @@ There were a total of 8 students who voluntarily participated in the experiments
 
 \begin{table}[ht!]
   \centering
-  \begin{tabular}{|p{0.3\linewidth}|P{0.48\linewidth}|p{0.15\linewidth}|}
+  \begin{tabular}{|p{0.3\linewidth}|P{0.45\linewidth}|P{0.14\linewidth}|}
     \hline
-    \tabhead{Category} & \tabhead{Installation Tasks} & \tabhead{Average Time (minutes)} \\    \hline    Setup runtime environment & Install Python, C compiler, Git, Pip and Virtual environment & 10.0 \\    \hline    Install dependencies & Install Python Imaging Library, Memcache, required python packages & 29.4 \\    \hline    Install and configure database & Install and configure PostgreSQL & 37.5 \\    \hline    Download the software & git clone from Github & 7.5 \\    \hline    Install the software & setup environment variables, run initialize\_instance script & 26.8 \\    \hline    Start the server and verify & start the server and verify the server running correctly & 2.5 \\   \hline
+    \tabhead{Category} & \tabhead{Installation Tasks} & \tabhead{Average Time (minutes)} \\
+    \hline
+    Setup runtime environment & Install Python, C compiler, Git, Pip and Virtual environment & 10.0 \\
+    \hline
+    Install dependencies & Install Python Imaging Library, Memcache, required python packages & 29.4 \\
+    \hline
+    Install and configure database & Install and configure PostgreSQL & 37.5 \\
+    \hline
+    Download the software & git clone from Github & 7.5 \\
+    \hline
+    Install the software & setup environment variables, run initialize\_instance script & 26.8 \\
+    \hline
+    Start the server and verify & start the server and verify the server running correctly & 2.5 \\
+   \hline
     \end{tabular}
   \caption{Average time (minutes) for local installation steps (n=8)}
   \label{table:local-install-time}
@@ -676,10 +814,19 @@ The results from the Google Form responses from the Heroku cloud installation re
 
 \begin{table}[ht!]
   \centering
-  \begin{tabular}{|p{0.28\linewidth}|p{0.5\linewidth}|p{0.15\linewidth}|}
+  \begin{tabular}{|P{0.28\linewidth}|P{0.48\linewidth}|P{0.14\linewidth}|}
     \hline
-    \tabhead{Category} & \tabhead{Installation Tasks} & \tabhead{Average Time (minutes)} \\    \hline    setup cloud environment & Install Heroku client, add ssh keys to Heroku, verify Heroku account, setup Amazon S3 & 50.6 \\    \hline    download software & git clone from Github & 6.3 \\    \hline    deploy to cloud & setup environment variables, run initialize\_instance script & 39.5 \\    \hline    Start the server and verify & start the server and verify server running correctly & 29.4 \\
-        \hline  \end{tabular}
+    \tabhead{Category} & \tabhead{Installation Tasks} & \tabhead{Average Time (minutes)} \\
+    \hline
+    setup cloud environment & Install Heroku client, add ssh keys to Heroku, verify Heroku account, setup Amazon S3 & 50.6 \\
+    \hline
+    download software & git clone from Github & 6.3 \\
+    \hline
+    deploy to cloud & setup environment variables, run initialize\_instance script & 39.5 \\
+    \hline
+    Start the server and verify & start the server and verify server running correctly & 29.4 \\
+        \hline
+  \end{tabular}
   \caption{Average time (minutes) for Cloud installation steps (n=8)}
   \label{table:heroku-install-time}
 \end{table}

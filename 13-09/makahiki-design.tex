@@ -42,7 +42,7 @@ Table \ref{table:installation} outlines the installation steps for both local an
 
 \begin{table}[ht!]
   \centering
-  \begin{tabular}{|p{0.27\columnwidth}|p{0.42\columnwidth}|P{0.21\columnwidth}|}
+  \begin{tabular}{|P{0.27\columnwidth}|p{0.42\columnwidth}|P{0.21\columnwidth}|}
     \hline
     \tabhead{Installation Step} &
     \tabhead{Local} &
@@ -346,7 +346,7 @@ Administrators use the Settings page to configure the site, design the challenge
 
 \clearpage
 
-System admins use the ``Site configuration'' button to configure the site related to the authentication, wattdepot server connectivity, and the email. \autoref{makahiki-sys-setting} shows the system admin interface.
+System admins use the ``Site configuration'' button to configure the site related to the authentication, wattdepot server connectivity, and the email. \autoref{fig:makahiki-sys-settings} shows the system admin interface.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -362,7 +362,7 @@ Game designers use the ``Challenge Design'' button to design and configure the g
 
 The challenge settings define the global configuration of the challenge such as the name and logo of the challenge, the round definition and the point system. The player settings are also defined in this section, as well as other configurable settings such as page, help, templates and the smart grid game content library. 
 
-The game settings define the configurations for each individual games and game mechanics in Makahiki. \autoref{makahiki-designer-setting} shows the challenge design interface.
+The game settings define the configurations for each individual games and game mechanics in Makahiki. \autoref{fig:makahiki-designer-settings} shows the challenge design interface.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -380,7 +380,7 @@ In order to manage the individual games in the challenge, a game manager uses th
 
 One important task to manage the Smart grid game is to approve the submissions from players. The game manager can use the ``Action Submissions'' link in the smart grid game management section to view the submissions and approve them, as well as generate the bonus point coupons to be handed out player. 
 
-\autoref{makahiki-manager-setting} shows the challenge management interface.
+\autoref{fig:makahiki-manager-settings} shows the challenge management interface.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -392,7 +392,7 @@ One important task to manage the Smart grid game is to approve the submissions f
 
 \clearpage
 
-Developers use the ``Developers'' button to debug the system, configure new pages and games. \autoref{makahiki-developer-setting} shows the developer interface.
+Developers use the ``Developers'' button to debug the system, configure new pages and games. \autoref{fig:makahiki-developer-settings} shows the developer interface.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -967,6 +967,10 @@ Another feature we implement in Makahiki is the ability to deploy to a Cloud pla
   \caption{Heroku cloud deployment}
   \label{fig:heroku}
 \end{figure}
+
+\autoref{section:cloud-hosting} describes in details our experiences with several real world Makahiki instances that are deployed to the Heroku cloud infrastructure. In general, for a small organization, a monthly cost of $10 for hosting a Makahiki game instance is sufficient, such as in the East West Center case. For a large organization with about 1000 eligible players, the monthly hosting cost will be around $100. 
+
+As discussed in \autoref{section:cloud-hosting}, besides the cost benefit, cloud deployment has the the advantage of dynamically adjusting the computing resource for the application in both scaling up and scaling down scenario. 
 
 \clearpage
 
