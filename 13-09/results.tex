@@ -7,7 +7,9 @@ This chapter reports the results of several real world instances of Makahiki imp
 
 We have used Makahiki to create totally seven (7) Kukui Cup Energy Challenges in four different organizations. The following sections describes the Makahiki instances for the four organizations and the different configurations between these instances.
 
-\subsection{University of Hawaii at Manoa}
+\subsection{Makahiki instances}
+
+\subsubsection{University of Hawaii at Manoa}
 
 There are three instances of Kukui Cup (KC) Challenges implemented by using the Makahiki framework in the university of Hawaii at Manoa (UHMM). They are held in 2011, 2012, and 2014 respectively for over 1000 first year students living in the residence halls on campus. The three instances have different competition durations, which are 3 weeks, 9 months and 2 weeks respectively. The residence halls where the students living in have energy smart meters installed for collecting the real time energy data consumed by the students. 
 
@@ -18,9 +20,9 @@ There are three instances of Kukui Cup (KC) Challenges implemented by using the 
    \label{fig:uhm-homepage}
 \end{figure}
 
-\subsection{Hawaii Pacific University}
+\subsubsection{Hawaii Pacific University}
 
-There are two instances of Kukui Cup Challenges implemented by using the Makahiki framework in the Hawaii Pacific University (HPU). They are held in 2012 and 2013 respectively for about 200 students living in the residence halls at the Hawaii Loa Campus. Energy smart meters were installed in the residence halls.
+There are two instances of Kukui Cup Challenges implemented by using the Makahiki framework in the Hawaii Pacific University (HPU). They are held in 2012 and 2013 respectively for about 200 students living in 6 residence halls at the Hawaii Loa Campus. Energy smart meters were installed in the residence halls.
 
 \begin{figure}[ht!]
    \centering
@@ -29,9 +31,9 @@ There are two instances of Kukui Cup Challenges implemented by using the Makahik
    \label{fig:hpu-homepage}
 \end{figure}
 
-\subsection{East-West Center}
+\subsubsection{East-West Center}
 
-The EWC Kukui Cup Energy and Water challenge was implemented by an international organization called the East-West Center (EWC) using the Makahiki framework. It was held in 2013 for approximately 600 international students living in their residence halls in Hawaii. The challenge lasts for 2 weeks and includes energy and water saving competition between two residence halls. The residence halls did not have internet-enabled smart meters.
+The EWC Kukui Cup Energy and Water challenge was implemented by an international organization called the East-West Center (EWC) using the Makahiki framework. It was held in 2012 for approximately 600 international students living in two residence halls in Hawaii. The challenge lasts for 2 weeks and includes energy and water saving competition between two residence halls. The residence halls did not have internet-enabled smart meters.
 
 \begin{figure}[ht!]
    \centering
@@ -40,9 +42,9 @@ The EWC Kukui Cup Energy and Water challenge was implemented by an international
    \label{fig:ewc-homepage}
 \end{figure}
 
-\subsection{Holy Nativity School}
+\subsubsection{Holy Nativity School}
 
-A pilot instance of Kukui Cup challenge implemented by using the Makahiki framework was held at the Holy Nativity School (HNS), a private elementary school in Hawaii, in 2013. The pilot instance was organized by the school with the partnership with Project Learning Tree (PLT) GreenSchool! program\cite{plt-greenschools}. The nationwide environmental service-learning program helps improve studentsâ€™ academic performance in STEM subjects by engaging students in STEM as they solve environmental issues at their school.
+A pilot instance of Kukui Cup challenge implemented by using the Makahiki framework was held at the Holy Nativity School (HNS), a private elementary school in Hawaii, in 2013. The pilot instance was organized by the school with the partnership with Project Learning Tree (PLT) GreenSchool! program\cite{plt-greenschools}. The nationwide environmental service-learning program helps improve students's academic performance in STEM subjects by engaging students in STEM as they solve environmental issues at their school. The educational challenge does not connect to any energy or water data. It is used in a elementary school setting to supplement the STEM education with sustainability focus. The challenge was initially scheduled for one months. It was later extended to 7 months to cover most of the Fall 2013 semester.
 
 \begin{figure}[ht!]
    \centering
@@ -55,7 +57,7 @@ A pilot instance of Kukui Cup challenge implemented by using the Makahiki framew
 
 The following sections describe the different customizations that were done to the above Makahiki instances according to the different organizations' needs.
 
-\subsubsection{Configuration Customization}
+\subsubsection{Challenge Customization}
 The challenge configuration includes the duration of the challenge, the participant accounts, resource such as energy and water settings, learning action configurations, prize and other game mechanics settings. 
 
 \autoref{table:challenge-configurations} lists the different configurations between the seven real world instances of Makahiki.
@@ -77,15 +79,15 @@ The challenge configuration includes the duration of the challenge, the particip
     \tabhead{Prize} &
     \tabhead{Quest} \\
     \hline
-    UHM2011 & 1000 & 20 & 3 weeks & 3 & \checkmark & \xmark & \checkmark & \checkmark\\
+    UHM2011 & 1070 & 20 & 3 weeks & 3 & \checkmark & \xmark & \checkmark & \checkmark\\
     \hline
     UHM2012 & 1086 & 20 & 9 months & 4 & \checkmark & \xmark & \checkmark & \checkmark\\
     \hline
     UHM2014 & 1093 & 20 & 2 weeks & 2 & \checkmark & \xmark & \checkmark & \checkmark\\
     \hline
-    HPU2012 & 190 & 6 & 3 weeks & 3 & \checkmark & \xmark & \checkmark & \checkmark\\
+    HPU2012 & 189 & 6 & 3 weeks & 3 & \checkmark & \xmark & \checkmark & \checkmark\\
     \hline
-    HPU2013 & 190 & 6 & 3 weeks & 3 & \checkmark & \xmark & \checkmark & \checkmark\\
+    HPU2013 & 197 & 6 & 3 weeks & 3 & \checkmark & \xmark & \checkmark & \checkmark\\
     \hline
     EWC2012 & 130 & 2 & 2 weeks & 1 & \checkmark  & \checkmark & \xmark & \xmark\\
     \hline
@@ -237,7 +239,7 @@ the game managers manually.
 
 Makahiki supported two types of hosting configurations. One is the local hosting where the application runs on the organization's own IT infrastructure. The other is the cloud hosting where the application runs on the Heroku's cloud infrastructure.
 
-\autoref{table:hosting-configurations} lists the different hosting configurations between the seven real world instances of Makahiki. 
+\autoref{table:hosting-configurations} lists the different hosting configurations between the seven real world instances of Makahiki. For the instances that hosted on the cloud infrastructure, the cloud service costs are also included in the table.  
 
 \begin{table}[ht!]
   \centering
@@ -255,9 +257,9 @@ Makahiki supported two types of hosting configurations. One is the local hosting
     \hline
     UHM2014 & Heroku cloud & Amazon S3, Memcache & 2 weeks & \$150\\
     \hline
-    HPU2012 &  Local Linux server & N/A & 3 weeks & N/A\\
+    HPU2012 &  Local CentOS server & N/A & 3 weeks & N/A\\
     \hline
-    HPU2013 &  Local Linux server & N/A & 3 weeks & N/A\\
+    HPU2013 &  Local CentOS server & N/A & 3 weeks & N/A\\
     \hline
     EWC2012 & Heroku cloud & Amazon S3, Memcache & 2 weeks & \$9 \\
     \hline
@@ -267,6 +269,8 @@ Makahiki supported two types of hosting configurations. One is the local hosting
   \caption{Hosting Configuration Differences}
   \label{table:hosting-configurations}
 \end{table}
+
+We installed the Makahiki for UHM 2011 instance locally in a Mac Pro server hosted in the Information and Computer Science department at the University of Hawaii at Manoa. We assisted the installation of HPU instance by working with the system admin personnel at HPU. For the EWC, HNS and the 2012, 2014 UHM instances, we deployed and managed the instances in the Heroku cloud infrastructure.
 
 Although there are some incurred costs in the case of hosting the Makahiki games in the Heroku cloud infrastructure, there is no need for maintaining the local infrastructure, such as keeping the server running, upgrade, patching as well as the locating the physical space for the server. There is no need to allocate IT support staff resource to do the system admin. The long term cost of the managing the local infrastructure is potentially higher. A serious game normally runs for a certain duration, so the organization only needs to pay for the charge for cloud infrastructure during that period.   
 
@@ -298,8 +302,10 @@ One major benefit of using the cloud infrastructure is the capability of dynamic
   \label{table:cloud-configurations}
 \end{table}
 
+The UHM2014 instance had the highest monthly cost while the EWC2012 instance had the lowest monthly cost. The costs were corresponding to the use of the type of database and the number of dynos, which is based on the usage demand of the game instances. There are over 1,000 eligible registered players in the UHM instances, so higher provision was needed. While EWC and HNS instances only has 130 users and 10 users respectively, a lower provision was sufficient. 
+
 Before hosting the Makahiki instances on Heroku, we had to decide what are the appropriate provisions for these instances with acceptable run time performance. 
-We did several performance tests with the Makahiki instance deployed on Heroku, and decided that 5 dynos was sufficient for servicing about 1000 users in the first cloud instance, 2012 UHM Kukui Cup. We did not perform extensive performance testing, knowing that we can always adjust the allocation of dynos during the competition if we observe the dynos are over-loaded or under-utilized. The performance tests where performed using the Apache JMeter \cite{jmeter}. \autoref{fig:performance-test} shows the results of running the tests with 2 dynos against 100 concurrent users and 5 dynos against 250 concurrent users.
+We did several performance tests with the Makahiki instance deployed on Heroku, and decided that 5 dynos was sufficient for servicing about 1,000 users in the first cloud instance, 2012 UHM Kukui Cup. We did not perform extensive performance testing, knowing that we can always adjust the allocation of dynos during the competition if we observe the dynos are over-loaded or under-utilized. The performance tests where performed using the Apache JMeter \cite{jmeter}. \autoref{fig:performance-test} shows the results of running the tests with 2 dynos against 100 concurrent users and 5 dynos against 250 concurrent users.
 
 \begin{figure}[ht!]
 	\centering
@@ -320,7 +326,7 @@ We configured Heroku cloud-based 2012 UHM instance to run with 5 dynos initially
 
 In the 2014 UHM instance, which is also deployed on the Heroku cloud infrastructure for the similar size of user base as in the 2012 Kukui Cup, 4 dynos were allocated for the entire duration of the 2 weeks competition because of its short term nature. We also performed a experiment to see if there is any performance difference when using the upgraded``Standard 2'' cloud database. We did not observe any noticeable performance improvement with the upgraded but much more expensive database. We consider the ``Standard 0'' database would be sufficient to support the 2014 instance, thus bring the cost for this kind of Makahiki instance to around \$100 per month.
 
-In the case of EWC and HNS instances, because the user based is much smaller, about 130 and 10 users respectively, we used a less expensive ``Basic'' Heroku cloud database and allocated 1 dynos in most of the time to achieve acceptable application performance.
+In the case of EWC2012 and HNS2013 instances, because the user base is much smaller, about 130 and 10 users respectively, we used a less expensive ``Basic'' Heroku cloud database and allocated 1 dyno in most of the time to achieve acceptable application performance. The two weeks EWC2012 competition found that the 1 dyno provisioned was sufficient without any performance complains. The HNS2013 instance was initially provisioned with 1 dyno.  After three months, the game manager encountered occasional slow loading of the smart grid game page, so we increased the number of dynos to 2. Later on, we noticed the usage of the game site was low so we decreased the number of dynos back to 1 without affecting the running game. On average, the HNS instances use 1.3 dynos during the competition period. 
 
 \subsubsection{Amazon S3 Cloud Service}
 
@@ -364,7 +370,7 @@ MemCachier provides a simple usage page to monitor the cache usage for your appl
 
 \subsubsection{Cloud Monitoring Service}
 
-Makahiki use a useful cloud application monitoring service called NewRelic to help monitoring the game instances that are deployed to Heroku. The monitoring instrument is enabled by using the NewRelic client to start the Makahiki application. Once the monitoring is enabled, we can use the NewRelic service monitoring console to view the runtime metrics of the Makahiki instance. \autoref{fig:newrelic-as} and \autoref{fig:newrelic-db} shows the monitoring screen for the application server metrics and database metrics respectively. Using this kind of monitoring service, we can identify the performance issues from various sources of a running instance.
+Makahiki use a useful cloud application monitoring service called NewRelic to help monitoring the game instances that are deployed to Heroku. The monitoring instrument is enabled by using the NewRelic client to start the Makahiki application. Once the monitoring is enabled, we can use the NewRelic service monitoring console to view the runtime metrics of the Makahiki instance. \autoref{fig:newrelic-as} and \autoref{fig:newrelic-db} shows the monitoring screen for the application server metrics and database metrics respectively. Using this kind of monitoring service, we can identify the performance issues from various sources of a running instance. It was also used to monitor the utilization of the allocated resources.
 
 \begin{figure}[ht!]
   \center
@@ -380,9 +386,7 @@ Makahiki use a useful cloud application monitoring service called NewRelic to he
   \label{fig:newrelic-db}
 \end{figure}
 
-\subsubsection{Summary}
-
-This section described our experiences with hosting the real world Makahiki instances in the Heroku cloud infrastructure. We compared the different resource provisions for the different instances based on the number of players and the duration of the gams.  Even during the game, the dynamic resource allocation capability of the cloud infrastructure provided a flexible and better utilization to this type of serious game. The areas we need to consider for the cloud infrastructure provisioning are:
+In summary, this section described our experiences with hosting the real world Makahiki instances in the Heroku cloud infrastructure. We compared the different resource provisions and associated costs for the different instances based on the number of players and the duration of the gams. Even during the game, the dynamic resource allocation capability of the cloud infrastructure provided a flexible and better utilization to this type of serious game. The areas we need to consider for the cloud infrastructure provisioning are:
 \begin{itemize}
 \item How many dynos / computing units to start with (for horizontal scaling)?
 \item What kind of dynos, 1X or 2X (for vertical scaling)? 
@@ -391,12 +395,17 @@ This section described our experiences with hosting the real world Makahiki inst
 \item What are the other cloud service (e.g, S3, monitoring) utilization?
 \end{itemize}
 
+\subsection{Summary}
+
+This section described our experiences in supporting seven (7) real world Makahiki instances in four (4) different organizations. The successful creation of these serious game instance provides evidence that Makahiki can be successfully tailored to the needs of different organizations. Among these instances, UHM and HPU used different metering infrastructure for automatically energy data collection, EWC collected their resource data manually, and HNS did not have energy data at all. While UHM and HPU challenges involved only energy consumption data, the EWC challenge involved both energy and water consumption data. The IT infrastructure at UHM and HPU provided authentication services using CAS and LDAP, while EWC used both CAS and the built-in Django internal  authentication, and HNS used only the internal authentication. Moreover, the user interface was customized to ÒbrandÓ each challenge with the logo, thematic elements, and the education contents of the sponsoring organizations.
+
+Lastly, the hosting infrastructure among these instances are different in two categories: local hosting for HPU and the 2011 UHM instances, and cloud hosting for EWC, HNS and 2012, 2014 UHM instances. These two types of hosting requirements created unique challenges for Makahiki. There are different costs associated with these hosting solutions. Although there are some incurred costs in the case of hosting the Makahiki games in the Heroku cloud infrastructure, there is no need for maintaining the local infrastructure, such as keeping the server running, upgrade, patching as well as the locating the physical space for the server. There is no need to allocate IT support staff resource to do the system admin. In addition, the dynamic resource allocation capability of the cloud infrastructure provided a flexible and better utilization of infrastructure resources in running the competition type  serious game, especially in the case of short competition duration and the varying user demands during the game.
+
 \section{SGSEAM assessment}
 
-The successful creation of seven (7) serious game challenges by four (4) different organizations
-provides evidence that Makahiki can be successfully tailored to the needs of different organizations. This section describes the result of applying a formal assessment method of SGSEAM to the Makahiki framework to assess the strengths and weaknesses of the Makahiki as a serious game framework.
+This section describes the result of applying a formal assessment method of SGSEAM to the Makahiki framework to assess the strengths and weaknesses of the Makahiki as a serious game framework.
 
-There are two categories of assessments, the {\em in-vivo} approaches such as pre-post effectiveness study, in-game surveys and post-hoc interviews assessed the real-world UHM, HPU and EWC Makahiki instances. The other {\em in-vitro} approaches used the UHM ICS691 serious game course as the in-lab experiment.  The \autoref{fig:assessment-overview} provides the overview of assessment and participants for each SGSEAM stakeholders of the Makahiki framework. 
+There are two categories of assessments, the {\em in-vivo} approaches of pre-post effectiveness study, in-game surveys and post-hoc interviews assessed the real-world UHM, HPU and EWC Makahiki instances. The other {\em in-vitro} approaches used the UHM ICS691 serious game course as the in-lab experiment.  The \autoref{fig:assessment-overview} provides the overview of assessment and participants for each SGSEAM stakeholders of the Makahiki framework. 
 
 \begin{table}[ht!]
   \centering
@@ -452,7 +461,7 @@ energy literacy.  Non-players as a control condition were also surveyed and foun
 \begin{figure}[ht!]
   \center
   \includegraphics[width=0.9\columnwidth]{UHM-literacy-result}
-  \caption{Literacy Survey Result of UHM 2011 KC from Robert Brewer 's Dissertation \cite{csdl2-10-08}}
+  \caption{Literacy survey result from Brewer 's dissertation \cite{csdl2-10-08}}
   \label{fig:UHM-literacy-result}
 \end{figure}
 
@@ -465,7 +474,7 @@ their energy consumption, with the highest increase of 11.7\%. The result is sho
 \begin{figure}[ht!]
   \center
   \includegraphics[width=0.9\columnwidth]{UHM-energy-result}
-  \caption{Energy Consumption Result of UHM 2011 KC from Robert Brewer's Dissertation \cite{csdl2-10-08}}
+  \caption{Energy consumption result from Brewer's dissertation \cite{csdl2-10-08}}
   \label{fig:UHM-energy-result}
 \end{figure}
 
@@ -474,7 +483,7 @@ Sara Cobble \cite{csdl2-12-14} from Hawaii Pacific University conducted the simi
 \begin{figure}[ht!]
   \center
   \includegraphics[width=0.75\columnwidth,height=1.7in]{HPU-energy-result}
-  \caption{Energy Reduction Result of HPU 2012 KC from Sara Cobble's Report \cite{csdl2-12-14}}
+  \caption{Energy reduction result from Cobble's report \cite{csdl2-12-14}}
   \label{fig:HPU-energy-result}
 \end{figure}
 
@@ -1079,7 +1088,7 @@ interface. The Makahiki instance log files and email exchanges between the game 
 
 When asked if it was easy to approve the player's submissions, the HPU game manager responded that it was ``very easy''. EWC game managers responded that ``the interface was easy''.
 
-Regarding the approval process, HPU game manager responded that he did not encounter any problem and there is no need to spend a lot of time. He made sure that player submissions were either approved or rejected within 12 hours. He also discovered a useful ``approve in batch'' feature in the approval interface without helps from the Makahiki support team.  
+Regarding the approval process, HPU game manager responded that he did not encounter any problem and there is no need to spend a lot of time. He made sure that player submissions were either approved or rejected within 12 hours. He also discovered a useful ``approve in batch'' feature in the approval interface without helps from the Makahiki support team.  Both HPU and EWC game managers found that the ``Status'' game analytics page was very helpful. It is their main tool to monitor and get a sense of the status of the game.
 
 We discussed some special issues of the game managing process in the EWC instance. The EWC instance did not use smart meter so the resource usage data had to be inputed manually by the game manager. They reported that it as a hassle to manually enter the data. The access to the water meter device was especially not pleasant.  A second issue with the EWC instance is that, because the number of players in the two competing teams has a significant difference, a simple aggregation of one team's player total points did not make sense for the team points. The energy and water consumption were also largely affected by the number of residents in the building represented by the team. A few days after the game started, the game manager realized the issues need to be addressed otherwise the competition would not be fair. We modified the Makahiki software to support the per-capita in team point calculation and update the EWC instance before the first round of the game ended. A third issue with EWC instance is the process of player registration. Typically, player accounts in Makahiki are created by game managers before the game and do not normally change during the game. In the case of EWC instance, the team roster were not available to the game manager so they had to use a google form to sign up players. In many case, new players were signed up in the several events during the game. The game managers had to created accounts for the new players manually in the middle of the game.
 
@@ -1210,21 +1219,6 @@ The Makahiki SGSEAM assessment results are shown in \autoref{table:assessment-re
      \item possible performance downgrade and some usability issues in the latest release
      \end{enumerate}  \\
     \hline
-  \end{tabular}
-  \caption{SGSEAM Assessment Result for Makahiki}
-  \label{table:assessment-result}
-\end{table}
-
-\clearpage    
-
-\begin{table}[ht!]
-  
-  \begin{tabular}{|P{0.17\columnwidth}|P{0.33\columnwidth}|P{0.4\columnwidth}|}
-    \hline
-    \tabhead{Stakeholder} &
-    \tabhead{Strength} &
-    \tabhead{Weakness} \\
-    \hline
     \begin{enumerate}[label={}, nosep, leftmargin=*]
     \item System admin perspective 
     \end{enumerate}
@@ -1256,6 +1250,21 @@ The Makahiki SGSEAM assessment results are shown in \autoref{table:assessment-re
     \item designing the smart grid game could be time consuming
     \end{enumerate} \\
     \hline
+  \end{tabular}
+  \caption{SGSEAM Assessment Result for Makahiki}
+  \label{table:assessment-result}
+\end{table}
+
+\clearpage    
+
+\begin{table}[ht!]
+  
+  \begin{tabular}{|P{0.17\columnwidth}|P{0.33\columnwidth}|P{0.4\columnwidth}|}
+    \hline
+    \tabhead{Stakeholder} &
+    \tabhead{Strength} &
+    \tabhead{Weakness} \\
+    \hline
     \begin{enumerate}[label={}, nosep, leftmargin=*]
     \item Game manager perspective 
     \end{enumerate}
@@ -1264,6 +1273,7 @@ The Makahiki SGSEAM assessment results are shown in \autoref{table:assessment-re
     \item the submission approval interface is straight forward 
     \item no need to spend too much time 
     \item the batch approval feature is useful 
+    \item the game analytics ``Status'' page is very useful
     \end{enumerate} 
     & 
     \begin{enumerate}[nosep, leftmargin=*]
@@ -1281,7 +1291,7 @@ The Makahiki SGSEAM assessment results are shown in \autoref{table:assessment-re
     \end{enumerate} 
     & 
     \begin{enumerate}[nosep, leftmargin=*]
-    \item difficult to develop meaning enhancements based on the current documentation
+    \item difficult to develop meaningful enhancements based on the current documentation
     \item development documents are missing parts, confusing, inconsistent.
     \item steep learning curve both on the based Django technology and Makahiki itself 
     \end{enumerate} \\
@@ -1315,9 +1325,9 @@ The SGSEAM Improvement actions for Makahiki are shown in \autoref{fig:assessment
 \item automate the configuration of SSL as much as possible, improve documentation
 \end{compactenum}
 
-\textbf{Improvement Actions from Game Dsigner stakeholder perspective:}
+\textbf{Improvement Actions from Game Designer stakeholder perspective:}
 \begin{compactenum}
-\item improve usability in event confirmation generation admin interface
+\item improve usability in event confirmation code generation admin interface
 \item provide a WYSIWYG content authoring and design tool
 \item improve the documentation on how to use the predicates
 \item fix the reported bugs 
@@ -1325,10 +1335,9 @@ The SGSEAM Improvement actions for Makahiki are shown in \autoref{fig:assessment
 
 \textbf{Improvement Actions from Game Manager stakeholder perspective:}
 \begin{compactenum}
-\item improve usability in event confirmation generation admin interface
-\item provide a WYSIWYG content authoring and design tool
-\item improve the documentation on how to use the predicates
-\item fix the reported bugs 
+\item improve usability of the interface for looking up event confirmation code
+\item support the access to the game site after game over
+\item support automatic emailing of game status periodically
 \end{compactenum}
 
 \textbf{Improvement Actions from Game Developer stakeholder perspective:}
@@ -1342,3 +1351,13 @@ The SGSEAM Improvement actions for Makahiki are shown in \autoref{fig:assessment
 \caption{SGSEAM Assessment Improvement Actions for Makahiki}
 \label{fig:assessment-action}  
 \end{figure}
+
+\section{Summary}
+
+This chapter described the results of Makahiki being used to create and manage seven (7) real-world sustainability games by four (4) organizations. These games were created in various configurations and hosting environments. The successful creation of these serious game instance provides evidence that Makahiki can be successfully tailored to the needs of different organizations.
+
+This chapter also described the application of SGSEAM to assess the strengths and weaknesses of the Makahiki framework. The {\em in-vivo} approaches were applied to the real-world Kukui Cup challenges created by the Makahiki framework, while the {\em in-vitro} approaches were applied to the UHM ICS691 serious game course to assess Makahiki from the perspectives of the five serious game stakeholders identified by SGSEAM: players, system admins, game designers, game managers and game developers.
+
+The SGSEAM assessment results were described in the format of assessment report (\autoref{table:assessment-result} and \autoref{table:assessment-result2}) which lists the strengths and weaknesses of Makahiki, and the improvement action report (\autoref{fig:assessment-action}) which itemizes the improvement actions from the five stakeholder' perspectives.   SGSEAM revealed that the major strengths of Makahiki are the ability to create an engaging and effective serious game for an organization, and the ability to provide easy-to-use interface for game designers and managers. SGSEAM revealed the major weaknesses of Makahiki are difficulty in developing new enhancements to extend the framework, from game developer's perspective. It is also difficult to integrate external services such as LDAP and email server from the system admin's perspective. From game designer's perspective, the major weaknesses are the lack of WYSIWYG content authoring tool.
+
+The application of SGSEAM to Makahiki had effectively identified several strengths and weaknesses of the Makahiki as the serious game framework for sustainability, and produced the improvement action report to Makahiki developer to improve the framework. As described in \autoref{future:other-framework}, applying SGSEAM to another serious game framework will provide better evidence of the strengths and weaknesses of the SGSEAM method itself. 
