@@ -2,7 +2,7 @@
 \chapter{Related Work}
 \label{cha:related-work}
 
-This chapter examines research related to sustainability, serious games and gamification, game design, serious game frameworks, and framework assessment. \autoref{sec:rel-sustainability} and \autoref{sec:rel-competition} discusses the needs for sustainability education and the current implementation of collegiate sustainability competitions. Section \ref{sec:rel-seriousgame} discusses related work on serious games and recent development in gamification. Section \ref{sec:rel-sg-sustainability} looks at the applications of ``serious game'' in the sustainability context. Finally, Section \ref{sec:rel-sg-framework} and Section \ref{sec:rel-sg-assessment} examine the serious game framework and its assessment.
+This chapter examines research related to sustainability, serious games and gamification, game design, serious game frameworks, and framework assessment. \autoref{sec:rel-sustainability} and \autoref{sec:rel-competition} discusses the needs for sustainability education and the current implementation of collegiate sustainability competitions. \autoref{sec:rel-seriousgame} discusses related work on serious games and recent development in gamification. \autoref{sec:rel-sg-sustainability} looks at the applications of ``serious game'' in the sustainability context. Finally, \autoref{sec:rel-sg-framework} and \autoref{sec:rel-sg-assessment} examine the serious game framework and its assessment.
 
 \section{Sustainability and Education}
 \label{sec:rel-sustainability}
@@ -63,7 +63,7 @@ Universities such as University of British Columbia \cite{runkle2011dark}  and B
 
 Campus Conservation Nationals (CCN) \cite{competetoreduce} is a nationwide electricity and water use reduction competition for colleges and universities. It has been running for the fifth year with hundreds of universities participating across North America. In 2014, 109 schools participated in the Energy Competition, which amount to total 1,330 building in the school campus and total 265,000 students and staffs actively involved in the self-chosen 3 weeks competition. Overall the competition resulted in 4.5\% average electricity competition reduction in the building level, with the top 10 schools achieved reductions ranging from 11\% to 24\%. The software infrastructure used in CCN is supported by Lucid Design Group through its the Building Dashboard platform, which is used by the participating schools to get feedback from their energy and water use, compare performance and track the competition standings.
 
-In summary, these collegiate sustainability competitions have the same goal of engaging students in sustainability issues using resource feedback and incentives such as some kind of prizes. Some competitions also provide educational content or activities such as organizing sustainability related events. Some competitions includes a simple point scheme that participants can win points for their teams or residence dorms by participating in the events and reducing the consumption. The team or dorm with the most points will win the prize. Some competitions also include the social sharing feature such as sharing their commitments to sustainability on Facebook as a way to enforce and encourage the positive behaviors.  \autoref{table:competition} lists the comparison among these competitions. The goal of Makahiki is to provide an open source framework for different organizations to create engaging sustainability serious games, including this kind of sustainability competitions. In addition to provide improvements to all of these features, Makahiki creates a more game-like interface such as tracking individual points and game plays, level progression, raffle game, badges etc.
+In summary, these collegiate sustainability competitions have the same goal of engaging students in sustainability issues using resource feedback and incentives such as some kind of prizes. Some competitions also provide educational content or activities such as organizing sustainability related events. Some competitions includes a simple point scheme that participants can win points for their teams or residence dorms by participating in the events and reducing the consumption. The team or dorm with the most points will win the prize. Some competitions also include the social sharing feature such as sharing their commitments to sustainability on Facebook as a way to enforce and encourage the positive behaviors.  \autoref{table:competition} lists the comparison among these competitions. 
 
 \begin{table}[ht!]
   \centering
@@ -86,13 +86,16 @@ Campus Conservation Nationals  & real-time   & \multicolumn{1}{|c|}{\checkmark} 
         \label{table:competition}
 \end{table}
 
-%% TODO: add more serious game examples
+None of these choices are ideal: the custom in-house solution requires sophisticated design and implementation skills; out-sourcing can be financially expensive and impedes evolution; and the simple webpage solution does not fully leverage the possibilities of advanced information technology.
+
+The goal of Makahiki is to provide an open source framework for different organizations to create engaging sustainability serious games, including this kind of sustainability competitions. In addition to provide improvements to all of features discussed above, Makahiki creates a more game-like interface such as tracking individual points and game plays, level progression and raffle game etc. Makahiki lowers the overhead to those who would build a custom in-house solution by providing pre-built components. It can lower the financial cost to those who would out-source by providing an open source alternative. Finally, it provides an opportunity for those who would choose a minimal tech solution to instead provide more sophisticated information technology.
+
 \section {Serious Games and Gamification}
 \label{sec:rel-seriousgame}
 
 Differentiating Makahiki from the other collegiate sustainability competition is the game design elements in Makahiki. We consider the sustainability competitions that created by the Makahiki framework are of a type of serious games.  A serious game is ``a game designed for a primary purpose other than pure entertainment'' \cite {WikipediaSeriousGame}. It includes categories such as educational games and advergames (advertising), political games, and training games (also known as game-learning). Zyda \cite{Zyda2005} defines serious game as ``a mental contest, played with a computer in accordance with specific rules that uses entertainment to further government or corporate training, education, health, etc''. 
 
-One prominent example is Foldit \cite {khatib2011crystal}, a multiplayer online game which helps solving problems that computers can not solve very well. In this case, online gamers around the world together were able to do what biochemists have been trying to do for a decade: decipher the structure of a protein that is key to the way HIV multiplies. Figure \ref{fig:foldit} shows a screen shot of the Foldit game.
+One prominent example is Foldit \cite {khatib2011crystal}, a multiplayer online game which helps solving problems that computers can not solve very well. In this case, online gamers around the world together were able to do what biochemists have been trying to do for a decade: decipher the structure of a protein that is key to the way HIV multiplies. \autoref{fig:foldit} shows a screen shot of the Foldit game.
 
 \begin{figure}[ht!]
 	\centering
@@ -101,7 +104,7 @@ One prominent example is Foldit \cite {khatib2011crystal}, a multiplayer online 
 		\label{fig:foldit}
 \end{figure}
 
-An Alternative Reality Game (ARG) is one type of serious game that blends real and virtual world activities in the serious gaming context. McGonigal defines ARG as ``games you play to get more out of your real life, as opposed to games you play to escape it'' \cite{mcgonigal2011reality}. Her award winning serious ARG game ``World Without Oil'' \cite{worldwithoutoil} and ``Evoke'' \cite{urgentevoke} are designed with the goal of empowering people to come up with creative solutions to urgent real-world problems. Figure \ref{fig:worldwithoutoil} shows an screen shot of the World Without Oil game. The game started on April 2007 for 32 days and concluded on June 2007. Approximately 2000 players participated in the game. They were asked to imagine what life would be like without oil, or try actually living without oil, then post their stories and thoughts in the forms of letter, emails, voicemails, blog posts, online videos and images. Some players reported that the online game affected their real world behaviors in some ways\cite{mcgonigal2011reality}.
+An Alternative Reality Game (ARG) is one type of serious game that blends real and virtual world activities in the serious gaming context. McGonigal defines ARG as ``games you play to get more out of your real life, as opposed to games you play to escape it'' \cite{mcgonigal2011reality}. Her award winning serious ARG game ``World Without Oil'' \cite{worldwithoutoil} and ``Evoke'' \cite{urgentevoke} are designed with the goal of empowering people to come up with creative solutions to urgent real-world problems. \autoref{fig:worldwithoutoil} shows an screen shot of the World Without Oil game. The game started on April 2007 for 32 days and concluded on June 2007. Approximately 2000 players participated in the game. They were asked to imagine what life would be like without oil, or try actually living without oil, then post their stories and thoughts in the forms of letter, emails, voicemails, blog posts, online videos and images. Some players reported that the online game affected their real world behaviors in some ways\cite{mcgonigal2011reality}.
 
 \begin{figure}[ht!]
 	\centering
@@ -118,11 +121,11 @@ Makahiki shares similarity with the ARGs that they both combined real and virtua
 
 While ``Serious Games'' has been an active research topic for decades, ``Gamification'', on the other hand, is a relatively new subject. Deterding et al. \cite {Deterding2011mt} defines gamification as ``the use of game design elements in non-game contexts''. The term only came into widespread use starting in 2010 \cite {schell2010design} \cite {zichermann2010game}. Gartner \cite {gartnerPress2011} predicts that by 2015, more than half of companies managing innovation processes will employ gamification, applying game mechanics to application areas including productivity, finance, health, sustainability, news, user-generated content and e-learning. 
 
-Deterding et al. \cite{Deterding2011mt} describes the distinctions between gamification, serious games and other related concepts, as shown in Figure \ref{fig:define_gamification}. According to Deterding, a) Gamification is about games. It is different than playful interaction or playful design. b) Gamification uses game elements. It is not a complete game such as a serious game. c) Gamification applies to non-game contexts. Similar to serious games, gamification uses games for other purposes than its normal expected use for entertainment. d) Gamification focuses on design. It is not game-based technology or practice of wider game ecology.
+Deterding et al. \cite{Deterding2011mt} describes the distinctions between gamification, serious games and other related concepts, as shown in \autoref{fig:define_gamification}. According to Deterding, a) Gamification is about games. It is different than playful interaction or playful design. b) Gamification uses game elements. It is not a complete game such as a serious game. c) Gamification applies to non-game contexts. Similar to serious games, gamification uses games for other purposes than its normal expected use for entertainment. d) Gamification focuses on design. It is not game-based technology or practice of wider game ecology.
 
 \begin{figure}[ht!]
 	\centering
-		\includegraphics[width=0.55\columnwidth]{defining_gamification.eps}
+		\includegraphics[width=0.5\columnwidth]{defining_gamification.eps}
 		\caption{Serious Game and Gamification (source: Deterding \cite{Deterding2011mt})}
 		\label{fig:define_gamification}
 \end{figure}
@@ -178,7 +181,7 @@ The research in serious games and gamification inspires the design of Makahiki i
 
 Why games? Results of a study published in the May 1998 issue of Nature \cite {koepp1998evidence} demonstrated that video game players experience regular releases of dopamine during game play. Dopamine is a neurotransmitter that signals pleasure rewards for food, sex and addictive drugs, such as cocaine. 
 
-A favorite subject of Greek vase-paintings in the ancient games exhibition in the British Museum's department of Greek and Roman antiquities is Ajax and Achilles playing a kind of board game called backgammon, as illustrated in Figure \ref{fig:ancient-games}. It is noteworthy that both Ajax and Achilles have the full armor on while playing the game. According to Arthur A. Krentz \cite{krentz1998play}, in Plato's ``Republic'', the term ``paideia" (in Greek, means education/culture), ``paidia" (means play/game/pastime/sport), and ``paides" (means children), have the same root. The three terms often show up in the same context. Krentz states that ``The central aim of pedagogy (paidagogia) is to encourage learning as a form of play (paidia), which is the most persuasive and effective approach to learning" .
+A favorite subject of Greek vase paintings in the ancient games exhibition in the British Museum's department of Greek and Roman antiquities is Ajax and Achilles playing a kind of board game called backgammon, as illustrated in \autoref{fig:ancient-games}. It is noteworthy that both Ajax and Achilles have the full armor on while playing the game. According to Arthur A. Krentz \cite{krentz1998play}, in Plato's ``Republic'', the term ``paideia" (in Greek, means education/culture), ``paidia" (means play/game/pastime/sport), and ``paides" (means children), have the same root. The three terms often show up in the same context. Krentz states that ``The central aim of pedagogy (paidagogia) is to encourage learning as a form of play (paidia), which is the most persuasive and effective approach to learning" .
 
 \begin{figure}[ht!]
 	\centering
@@ -272,7 +275,7 @@ The design of Makahiki is influenced by the above game design thinking. It combi
 
 Makahiki is a framework for sustainability games. Serious games for sustainability are games designed to achieve the goal of sustainability development.    
 
-Vermontivate \cite{vermontivate}, a type of community sustainability game, shown in \autoref{fig:vermontivate}, is similar to the games created by Makahiki.  Vermontivate is a team-based game where  the players compete to accrue as many points as possible for their towns or schools by participating in a variety of sustainability-focused actions. It runs for six weeks with mainly the participants in the state of Vermont. Because of the difference between the team size, team scores are calculated ``per-capita'' by adding up a team�s total points and dividing by its number of players. A new set of challenges is announced every week with a different theme such as team-building, food, energy, transportation, capital, and future action. According to the initial sponsor of the game, Vermont Energy Investment Corporation, the first Vermontivate game began in May of 2012 and attracted 225 players from 31 Vermont towns. 94�95\% of players reported average to above-average understanding of and engagement with climate change and sustainability after playing Vermontivate, compared to 78\% prior to playing \cite{veic}. Compared to Makahiki, Vermontivate game does not have individual points or prizes and more focus on activities and relies on self-reported participation. 
+Vermontivate \cite{vermontivate}, a type of community sustainability game, shown in \autoref{fig:vermontivate}, is similar to the games created by Makahiki.  Vermontivate is a team-based game where  the players compete to accrue as many points as possible for their towns or schools by participating in a variety of sustainability-focused actions. It runs for six weeks with mainly the participants in the state of Vermont. Because of the difference between the team size, team scores are calculated ``per-capita'' by adding up a team's total points and dividing by its number of players. A new set of challenges is announced every week with a different theme such as team-building, food, energy, transportation, capital, and future action. According to the initial sponsor of the game, Vermont Energy Investment Corporation, the first Vermontivate game began in May of 2012 and attracted 225 players from 31 Vermont towns. 95\% of players reported average to above-average understanding and engagement with climate change and sustainability after playing Vermontivate, compared to 78\% prior to playing \cite{veic}. Unlike Makahiki, Vermontivate game does not have individual points or prizes and more focus on activities and relies on self-reported participation. 
 
 \begin{figure}[ht!]
 	\centering
@@ -281,7 +284,7 @@ Vermontivate \cite{vermontivate}, a type of community sustainability game, shown
 		\label{fig:vermontivate}
 \end{figure}
 
-Similar to Vermontivate, RecycleBank's ``Green Challenges'' \cite {recyclebank} is another serious game that used online gaming techniques to motivate participants to learn about green living and to take small green actions to live more sustainable lives offline. \autoref{fig:RecycleBank1} shows a web page from the ``Green your home Challenge'' game. According to the ``Gaming For Good'' report \cite {gamingforgood}, 49,000 individuals participated in the ``Green Your Home Challenges''. \autoref{fig:RecycleBank2} shows a section of the survey results regarding the self-reported sustainability behavior changes after the game. Partnered with Google Analytics and ROI research, they found that:
+Similar to Vermontivate, RecycleBank's ``Green Challenges'' \cite {recyclebank} is another serious game that used online gaming techniques to motivate participants to learn about green living and to take small green actions to live more sustainable lives offline. Figure \autoref{fig:RecycleBank1} shows a web page from the ``Green your home Challenge'' game. According to the ``Gaming For Good'' report \cite {gamingforgood}, 49,000 individuals participated in the ``Green Your Home Challenges''. Figure \autoref{fig:RecycleBank2} shows a section of the survey results regarding the self-reported sustainability behavior changes after the game. Partnered with Google Analytics and ROI research, they found that:
 \begin{itemize}
 	\item Gamification can increase awareness of positive environmental actions. 97\% of participants surveyed said the game increased their knowledge of the environment.
 	\item Games can drive individuals to take positive social and environmental actions. Most participants surveyed indicated they are very or extremely likely to take green actions as a result of participating in the challenge.
@@ -357,7 +360,7 @@ Game frameworks (also known as game engines) \cite{sherrod2006ultimate} are ``co
 
 One of the benefits of using a game framework is that, if correctly designed, it will provide useful and reusable ``building blocks'' with which to develop a variety of games. Similarly, serious game frameworks also provide building blocks that enable the serious game developer to focus more time and thought on content and results instead of on the technical details and infrastructure for creating the serious game.
 
-There are two serious game frameworks related to sustainability development. One such framework is the Building Dashboard \cite{building-dashboard}, developed by Lucid Design Group, as shown in Figure \ref{fig:building-dashboard}.
+There are two serious game frameworks related to sustainability development. One such framework is the Building Dashboard \cite{building-dashboard}, developed by Lucid Design Group, as shown in \autoref{fig:building-dashboard}.
 
 \begin{figure}[ht!]
 	\centering
@@ -373,7 +376,7 @@ Building Dashboard is similar to Makahiki that they are both frameworks for supp
 cost of Building Dashboard as a commercial system creates a barrier to wider adoption. In addition, the
 Building Dashboard solution focuses on providing energy information as a passive media. Besides a scoreboard, there is little interaction between participants and the system. There are less game elements other than providing a scoreboard to display the ranking of the competing teams, moreover, there is no individual points or ranking. Unlike Makahiki, Building Dashboard does not have the concept of individual registered player account, thus it does not have the capability to provide the evidence of individual player engagement.
 
-Another framework related to sustainability is the Stanford Energy Services Platform \cite{Armel-2012}, as shown in Figure \ref{fig:stanford-platform}. It provides services to support the creations of energy efficiency program and research. The services include data storage, a recommendation system, user registration and participation assignment, surveys and analytics. It had been utilized to support the implementation of several of Stanford's energy saving projects and energy related serious games, such as the Power House game, Power Down game, and Energy Calculator. At this point, there is not enough information about the Stanford Energy Services Platform regarding the availability and features. 
+Another framework related to sustainability is the Stanford Energy Services Platform \cite{Armel-2012}, as shown in \autoref{fig:stanford-platform}. It provides services to support the creations of energy efficiency program and research. The services include data storage, a recommendation system, user registration and participation assignment, surveys and analytics. It had been utilized to support the implementation of several of Stanford's energy saving projects and energy related serious games, such as the Power House game, Power Down game, and Energy Calculator. At this point, there is not enough information about the Stanford Energy Services Platform regarding the availability and features. 
 
 \begin{figure}[ht!]
 	\centering
@@ -394,7 +397,7 @@ In order to assess a serious game framework such as Makahiki, it is important to
 game achieves its ``serious'' purpose.  This is quite different from traditional entertainment games, in which evaluation focuses on usability or playability \cite{song2007new}. In the field of serious games, there is an increasing focus on the methodology of game evaluation \cite{Mayer2012233}. 
 
 De Freitas and Oliver \cite{de2006can} point out that there are few frameworks to support the evaluation of education games. They introduce a four dimensional framework for evaluating 
-educational games and simulations. The framework consists of: the context, the pedagogy, the representation, and the learner (or player). Figure \ref{fig:four-dimensional-framework} illustrates the evaluation framework.
+educational games and simulations. The framework consists of: the context, the pedagogy, the representation, and the learner (or player). \autoref{fig:four-dimensional-framework} illustrates the evaluation framework.
 
 \begin{figure}[ht!]
 	\centering
@@ -404,7 +407,7 @@ educational games and simulations. The framework consists of: the context, the p
 \end{figure}
 
 Harteveld \cite{harteveld2010triadic} also agrees that ``Evaluatory research for games with a serious purpose is still at its infancy''. He proposes an evaluation framework called ``Triadic Game Evaluation (TGE)'' for assessing serious games. It consisting of three perspectives: Reality,
-Meaning, and Play, as illustrated in the Figure \ref{fig:triadic-game-eval}.
+Meaning, and Play, as illustrated in the \autoref{fig:triadic-game-eval}.
 
 \begin{figure}[ht!]
 	\centering
@@ -427,7 +430,7 @@ Effectiveness assessment is often part of the serious game evaluation. In their 
 The above approaches focus on evaluation of a single game, as opposed to a game {\em
   framework}. One of the benefits of using a game framework is that, if correctly designed, it will provide useful and reusable ``building blocks'' with which to develop a variety of games. Yet how are we to know if a game framework has been ``correctly designed''?
 
-Berger and Muller \cite {fabulaengine} describe their approach of using the Technology Acceptance Model (TAM) to evaluate the custom game engine Fabula \cite{fabula}. Technology Acceptance Model \cite {davis1986technology} is a well received theoretical model on assessing user acceptance of computer-based information systems, introduced by Fred Davis in his doctoral thesis in 1985. TAM considers that system use is a response that can be predicted by user motivation, which is influenced by an external stimulus of the system's features and capabilities. Figure \ref{fig:tam} illustrates the original Davis model. X1, X2 and X3 in the figure represent the system features.
+Berger and Muller \cite {fabulaengine} describe their approach of using the Technology Acceptance Model (TAM) to evaluate the custom game engine Fabula \cite{fabula}. Technology Acceptance Model \cite {davis1986technology} is a well received theoretical model on assessing user acceptance of computer-based information systems, introduced by Fred Davis in his doctoral thesis in 1985. TAM considers that system use is a response that can be predicted by user motivation, which is influenced by an external stimulus of the system's features and capabilities. \autoref{fig:tam} illustrates the original Davis model. X1, X2 and X3 in the figure represent the system features.
 
 \begin{figure}[ht!]
 	\centering
@@ -504,7 +507,7 @@ Appdata.com gathers independent application metrics from most of the social game
 		\label{fig:social-game-metrics}
 \end{figure}
 
-While the QUIS \cite{harper1993improving} is used for measuring user interaction satisfaction in a general software system, Game Engagement Questionnaire (GEQ) \cite{brockmyer2009development} developed by Brockmyer et al. is used to assess the engagement in a game. The questionnaire provides a ``psychometrically'' strong measure of levels of engagement specifically while playing video games. While the GEQ could measure the engagement level of positive game experience, the original intent of the research is to ``examine risk and protective factors for negative game impact''. Figure \ref{fig:geq} shows the questionnaire items.
+While the QUIS \cite{harper1993improving} is used for measuring user interaction satisfaction in a general software system, Game Engagement Questionnaire (GEQ) \cite{brockmyer2009development} developed by Brockmyer et al. is used to assess the engagement in a game. The questionnaire provides a ``psychometrically'' strong measure of levels of engagement specifically while playing video games. While the GEQ could measure the engagement level of positive game experience, the original intent of the research is to ``examine risk and protective factors for negative game impact''. \autoref{fig:geq} shows the questionnaire items.
 
 \begin{figure}[ht!]
 	\centering

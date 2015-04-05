@@ -11,6 +11,8 @@
 \usepackage{epsfig}
 \usepackage{graphicx}
 
+\usepackage{float}
+
 %% Tell graphicx the default directory for all figures
 \graphicspath{{figures/}}
 
@@ -19,6 +21,8 @@
 
 \usepackage{paralist} % compact lists
 \usepackage{multirow}
+
+\usepackage[shortlabels]{enumitem}
 
 % create a shortcut to typeset table headings
 \newcommand\tabhead[1]{\small\textbf{#1}}
@@ -173,6 +177,12 @@ backgroundcolor=gray!30,shadow=true,shadowsize=3]{shadebox}
 skipabove=0pt,skipbelow=0pt,
 backgroundcolor=gray!10]{mybox}
 
+\def\keywords{
+\vspace{.5em}
+{\textit{Keywords}:\,\relax%
+}}
+\def\endkeywords
+
 \usepackage{color}
 \usepackage{listings}
 \lstset{ %
@@ -221,7 +231,7 @@ escapeinside={\%*}{*)}          % if you want to add a comment within your code
 \author{Yongwen Xu}
 %% Month in which you intend to receive your degree (i.e. graduation).
 %% Presumably this will be one of: May, August, or December.
-\degreemonth{August}
+\degreemonth{May}
 %% Year of expected graduation.
 \degreeyear{2015}
 %% Type of degree to be conferred.
@@ -239,7 +249,7 @@ Daniel Port}
 %% The field in which you are obtaining your degree, capitalized normally.
 \field{Computer Science}
 %% 4-6 optional keywords/phrases for use in indexing or as search terms
-%%\keywords{serious games, sustainability, framework, evaluation}
+%%\keywords{serious games, gamification, sustainability, framework, evaluation}
 
 %% The version number of your document. Consistent use of this will enable you
 %% to tell old drafts from new ones. Final actual documents omit this
