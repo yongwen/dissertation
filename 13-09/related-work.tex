@@ -282,15 +282,10 @@ Psychology professor Mihaly Czikszentmihalyi introduced a specific kind of happi
 
 In order to understand why people play games, Richard Bartle identified four player personality types by studying players of the Multi-User Dungeon (MUD) game in 1960s \cite {bartle1996hearts}:
 \begin{enumerate}
-
 \item \textbf{Achievers}: driven by in-game goals, usually some form of points gathering - whether experience points, levels, or money.
-
 \item \textbf{Explorers}:  driven to find out as much as they can about the virtual construct - including mapping its geography and understanding the game mechanics.
-
 \item \textbf{Socializers}: use the virtual construct to converse and role-play with their fellow gamers.
-
 \item \textbf{Killers}: use the virtual construct to cause distress on other players, and gain satisfaction from inflicting anxiety and pain on others.
-
 \end{enumerate}
 
 Bartle's player type model has been the basic for understanding the player motivation. Dan Dixon presented the limitation and misuse of Bartle's model in general games and gamification contexts \cite{DixonPlayerType}. Amy Jo Kim applied the model in her gamification approach by overlaying social actions from the game on top of the player types \cite {Kim2010}, as shown in \autoref{fig:play-types}.
@@ -345,7 +340,35 @@ In order to design a game that that is intrinsic motivated, Amy Jo Kim presented
 
 Similarly, Sebastian Deterding not only criticized the current practice of simple gamification practices but stressed the important of ``meaningful play'' and proposed a user experience design around the three most important aspects: Meaning, Master and Autonomy \cite {Deterding2011meaningful}, It is an adaptation to the three elements to motivate people in Daniel Pink's book ``Drive: The Surprising Truth About What Motivates Us" \cite {pink2009drive}. Deterding explained that the reason why we play is because of the meaning and autonomy (choices) in the game. The mastery in the game give us fun and enjoyment.
 
-The design of Makahiki is influenced by the above game design thinking. It combines extrinsic rewards such as prizes and achievement badges with the intrinsic motivation such as improving our environments by learning. Makahiki employs Kim's player journey idea \cite{Kim2010} to design the on-boarding and progression of levels in the smart grid game. Other game mechanics, such as the ``appointment mechanics'' and the ``social interaction'' described in SCVNGR's game dynamics play deck\cite{Biggs2010} are being used in Makahiki to improve player engagement. 
+The design of Makahiki is influenced by the above game design thinking. It combines extrinsic rewards such as prizes and achievement badges with the intrinsic motivation such as improving our environments by learning. Makahiki employs Kim's player journey idea \cite{Kim2010} to design the on-boarding and progression of levels in the smart grid game. \autoref{table:game-mechanics} lists some of the most common used game mechanics compiled by Gamification.org\cite{gamificationwiki} and how they are used in Makahiki.
+
+\begin{table}[ht!]
+  \centering
+        \begin{tabular}{| P{0.14\linewidth} | P{0.45\linewidth} | P{0.12\linewidth} | P{0.14\linewidth}|} 
+        \hline
+      \tabhead{Mechanics} & \tabhead{Description} & \tabhead{Player Type} & \tabhead{In Makahiki}  \\
+        \hline
+        Levels  	& a system of reward for a cumulation of points, unlocked as players progress & Achievers & level \\
+        \hline
+        Points & a running numerical value given for any single action or combination of actions. & Achievers & point \\
+        \hline
+        Achievements 	& badge, completed something  & Achievers  & badge \\
+        \hline
+        Progression & success is granularly displayed (progress bar) through the process of completing tasks & Achievers & \\        \hline
+	Appointment Dynamics & at a predetermined times/places a user must return for a positive effect  & Archivers & approval process \\        \hline
+	Countdown & players are only given a certain amount of time to do something & Achievers & \\
+        \hline
+        Quests & a journey of obstacles a player must overcome & Achievers, Explorers & \\        \hline
+	Reward Schedules & the fixed or variable time frame and delivery of the rewards & Achievers & daily goal game \\        \hline
+	Loss Aversion & the player having to perform an action to avoid losing & Achievers & event sign up penalty\\        \hline
+	Lottery & the winner is determined by chance & Achievers, Explorers & raffle game \\        \hline
+	Status & the rank or level of a player & Achievers, Socializers, Killers & \\        \hline
+	Community Collaboration & rally community to work together to solve a riddle, a problem or a challenge & Socializers & social bonus, Facebook share \\
+        \hline
+        \end{tabular}
+        \caption{Game mechanics and use in Makahiki}
+        \label{table:game-mechanics}
+\end{table}
 
 \section{Serious Game Frameworks}
 \label{sec:rel-sg-framework}
