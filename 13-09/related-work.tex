@@ -399,35 +399,42 @@ and water use information on the web through a visual interface.
 
 Building Dashboard is similar to Makahiki that they are both frameworks for supporting sustainability competitions, but the
 cost of Building Dashboard as a commercial system creates a barrier to wider adoption. In addition, the
-Building Dashboard solution focuses on providing energy information as a passive media. Besides a scoreboard, there is little interaction between participants and the system. There are no game elements other than providing a scoreboard to display the ranking of the competing teams, moreover, there is no individual points or ranking. Unlike Makahiki, Building Dashboard does not have the concept of individual registered player account, thus it does not have the capability to provide the evidence of individual player engagement. \autoref{table:makahiki-lucid} compares the features of Building Dashboard and Makahiki.
+Building Dashboard solution focuses on providing energy information as a passive media. Besides a scoreboard, there is little interaction between participants and the system. There are no game elements other than providing a scoreboard to display the ranking of the competing teams, moreover, there is no individual points or ranking. Unlike Makahiki, Building Dashboard does not have the concept of individual registered player account and personalization, thus it does not have the capability to provide the evidence of individual player engagement. \autoref{table:makahiki-lucid} compares the features of Building Dashboard and Makahiki.
 
 \begin{table}[ht!]
   \centering
-        \begin{tabular}{| p{0.3\linewidth} | c | c |} 
+        \begin{tabular}{| p{0.4\linewidth} | c | c |} 
         \hline
        & \tabhead{Building Dashboard} & \tabhead{Makahiki} \\
         \hline
         Real-time feedback 	& \checkmark & \checkmark \\
-         \hline
         Competition  	& \checkmark & \checkmark \\
-         \hline
         Social     	& \checkmark & \checkmark \\
-         \hline
         Commitments     	& \checkmark & \checkmark \\
-         \hline
         Scoreboard	    	&  \checkmark & \checkmark \\
-        \hline
  	Points		&  & \checkmark \\
-        \hline
- 	Online games &  & \checkmark \\
-        \hline
- 	Individual login &   & \checkmark \\
+        Integrated Educational Content &  & \checkmark \\
+ 	Pluggable games &  & \checkmark \\
+ 	Personalization &   & \checkmark \\
+        Game analytics &   & \checkmark \\
+        Open Source &   & \checkmark \\
         \hline
         \end{tabular}
         \caption{BuildingDashboard and Makahiki framework comparison}
         \label{table:makahiki-lucid}
 \end{table}
 
+A game framework is used to create serious games. \autoref{fig:serious-game-lifecycle} illustrates a full lifecycle of a serious game using a framework. By instantiating from a serious game framework, the system admins create a new serious game with the default configurations. The next phrase is for the game designers to configure the instance according to their organization's specific needs. In the case of the built-in features not able to meet the organization's need, the game can be extended by the game developers to add new features or customizations. After the game instance is finalized, the system admins will deploy it to the infrastructure of the choice of the organization. Once the game instance is deployed and running, the next phrase is for the game managers to manage the game using the admin interface provided by the framework, and the players will play the game. The last phrase of the lifecycle is the analysis phrase after the game is over where game managers, designers and developers can evaluate and learn from the results of the game.
+
+\begin{figure}[ht!]
+	\centering
+		\includegraphics[width=0.8\columnwidth]{serious-game-lifecycle.eps}
+		\caption{Serious game lifecycle using a framework}
+		\label{fig:serious-game-lifecycle}
+\end{figure}
+
+The design of Makahiki follows closely the serious game lifecycle using a framework, which provides building blocks and utilities for each phrase of the lifecycle. Lucid's Building Dashboard system only provides a pre-built Software As a Service (SaaS) solution where the game designers can choose from a small sets of dashboard widgets and game managers can enter energy data manually if needed. There is no option for system admin to install the system locally or deploy to the infrastructure of their choices, or for the developers to extend the game. There is no game analytics provided in BuildingDashboard. Makahiki has a much richer feature set than Lucid's Building Dashboard. 
+ 
 Another framework related to sustainability is the Stanford Energy Services Platform \cite{Armel-2012}, as shown in \autoref{fig:stanford-platform}. It provides services to support the creations of energy efficiency program and research. The services include data storage, a recommendation system, user registration and participation assignment, surveys and analytics. It has been utilized to support the implementation of several of Stanford's energy saving projects and energy related serious games, such as the Power House game, Power Down game, and Energy Calculator. At this point, there is not enough information about the Stanford Energy Services Platform regarding the availability and features. 
 
 \begin{figure}[ht!]
@@ -437,13 +444,10 @@ Another framework related to sustainability is the Stanford Energy Services Plat
 		\label{fig:stanford-platform}
 \end{figure}
  
-%% TODO: add non-serious game framework assessment
 \section{Serious Game and Framework Assessment}
 \label{sec:rel-sg-assessment}
 
 This section examines the assessment of serious game frameworks. It starts by looking at the assessment of serious games, then  the assessment of game frameworks in general. From my literature search, I have not yet found any prior work concerning a comprehensive approach for the particular needs of a serious game framework assessment. Nevertheless the research in game and framework assessment methods provides ground works for the SGSEAM method that we designed for use in assessing a serious game framework.
-
-\subsection{Serious Game Assessment}
 
 In order to assess a serious game framework such as Makahiki, it is important to assess the serious games the framework produces.  One fundamental question in evaluating a serious game is the extent to which the
 game achieves its ``serious'' purpose.  This is quite different from traditional entertainment games, in which evaluation focuses on usability or playability \cite{song2007new}. In the field of serious games, there is an increasing focus on the methodology of game evaluation \cite{Mayer2012233}. 
@@ -468,8 +472,6 @@ Effectiveness assessment is often part of the serious game evaluation. In their 
 \item Playing the EnerCities game made me aware that I should lower my own energy usage
 \end{itemize}
 
-\subsection{Framework Assessment}
-
 The above approaches focus on evaluation of a single game, as opposed to a game {\em
   framework}. One of the benefits of using a game framework is that, if correctly designed, it will provide useful and reusable ``building blocks'' with which to develop a variety of games. Yet how are we to know if a game framework has been ``correctly designed''?
 
@@ -488,6 +490,25 @@ Questionnaire for User Interaction Satisfaction (QUIS) \cite{harper1993improving
 
 Another usability assessment tool is the usability metrics described in Tullis and Albert 's book ``Measuring the User Experience'' \cite{tullis2010measuring}. For a usability procedure about completing transactions, Tullis and Albert suggest measuring task success, user efficiency, issues-based metrics, self-reported metrics, and live website metrics. Task success is a simple metric for a given task, does the user complete it or not? User efficiency is a measurement
 of the effort required for the user to complete the task. For example, we can measure this by the amount of time spent to complete the task. Issues-based metrics involve measuring the number of times usability issues are encountered. Self-reported metrics are based on user responses to survey questions. Finally, live website metrics can be derived from analyzing the logs created by the website to understand the user experience.
+
+The above assessment methods focus on one or two aspects of the lifecycle of a serious game using a framework. \autoref{fig:lifecycle-assessment} illustrates the existing assessment methods in the context of a full serious game lifecycle using a serious game framework. 
+\begin{figure}[ht!]
+	\centering
+		\includegraphics[width=0.8\columnwidth]{assessment-lifecycle.eps}
+		\caption{Existing assessment methods in a serious game lifecycle}
+		\label{fig:lifecycle-assessment}
+\end{figure}
+
+The serious game assessment methods only assess the player aspect of the lifecycle, where the player effectiveness is the main concern of the individual serious game assessments. The Game Engagement Questionnaire (GEQ) only assesses the engagement from the player's perspective. The Technology Acceptance Model (TAM) focuses on the perceived acceptance of the framework in the case of system admins and game designers' perspective. The Questionnaire for User Interaction Satisfaction (QUIS) only assesses the usability of players and game designers when using the game and the framework.
+
+The design of SGSEAM, the Serious Game Stakeholder Experience Assessment Method, is to address all the stakeholders in a serious game lifecycle using a serious game framework. As illustrated in \autoref{fig:sgseam-assessment}, SGSEAM assess all the stakeholders in the full lifecycle of a serious game to understand the strengths and weaknesses of a serious game framework from these stakeholders' perspectives.
+
+\begin{figure}[ht!]
+	\centering
+		\includegraphics[width=0.8\columnwidth]{sgseam-lifecycle.eps}
+		\caption{Existing assessment methods in a serious game lifecycle}
+		\label{fig:sgseam-assessment}
+\end{figure}
 
 \subsection{Game Metrics}
 
@@ -562,4 +583,4 @@ While the QUIS \cite{harper1993improving} is used for measuring user interaction
 \section{Summary}
 \label{sec:rel-summary}
 
-In summary, this chapter discusses related work on serious games and gamification, game design thinking, serious games for sustainability, serious game frameworks and their assessment. The motivation of  Makahiki is to provide a low cost infrastructure that enables the creation and managing of collegiate sustainability competitions. The design of Makahiki is inspired by current research in game design in the context of both serious games and gamification. Serious game evaluation is an emerging field. There exists several assessment methods for serious games and for general purpose such as system usability. During my literature search, I have not found any research in the area of assessment method for serious game framework. The design of SGSEAM is to provide an assessment method for the particular needs of assessing a serious game framework.
+In summary, this chapter discusses related work on serious games and gamification, game design thinking, serious games for sustainability, serious game frameworks and their assessment. The motivation of  Makahiki is to provide a low cost infrastructure that enables the creation and managing of collegiate sustainability competitions. The design of Makahiki is inspired by current research in game design in the context of both serious games and gamification. Serious game evaluation is an emerging field. There exists several assessment methods for serious games and for general purpose such as system usability. During my literature search, I have not found any research in the area of assessment method for assessing a serious game framework from the aspect of a full lifecycle of a serious game. The design of SGSEAM is to provide an assessment method for the particular needs of assessing a serious game framework from all the stakeholders in a serious game lifecycle.

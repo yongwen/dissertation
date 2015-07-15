@@ -30,9 +30,9 @@ The major differences between these instances are:
 
 I assisted the HPU system admin to install their instances in HPU's infrastructure, and integrate with HPU's LDAP and email server, which were found to be the most difficult tasks in HPU's installation. I also deployed the UHM, EWC and HNS instances to the Heroku cloud and actively managed these cloud instances. 
 
-While these real world Makahiki instances provide initial evidence regarding the ability of the Makahiki framework to support sustainability games in different environments, a more rigorous evaluation of Makahiki would yield better quality insight. During my literature search, I did not find any research in the area of  evaluation for serious game {\em \bf frameworks}, although there exists several assessment methods for serious games and for general purpose evaluation such as system usability. 
+While these real world Makahiki instances provide initial evidence regarding the ability of the Makahiki framework to support sustainability games in different environments, a more rigorous evaluation of Makahiki would yield better quality insight. During my literature search, I did not find any research in the area of  evaluation for serious game {\em \bf frameworks}, although there exists several assessment methods for serious games and for general purpose evaluation such as system usability. I have not found any research in the area of assessment method for assessing a serious game framework from the aspect of a full lifecycle of a serious game. I designed an assessment method called Serious Game Stakeholder Experience Assessment Method (SGSEAM), to assess a serious game framework from all the stakeholders in a serious game lifecycle.
 
-The goal of SGSEAM is to provide an assessment method for the particular needs of assessing a serious game framework. SGSEAM describes a stakeholder perspective-based method to provide detailed insight into the strengths and weaknesses of a serious game framework. It identifies the major stakeholders whose experiences affect a serious game framework: players, system admins, game designers, game managers and game developers. For each stakeholder, multiple assessment approaches can be used, depending on the resources available. The more approaches applied, the higher one's confidence in the accuracy of the assessment results.
+SGSEAM describes a stakeholder perspective-based method to provide detailed insight into the strengths and weaknesses of a serious game framework. It identifies the major stakeholders whose experiences affect a serious game framework: players, system admins, game designers, game managers and game developers. For each stakeholder, multiple assessment approaches can be used, depending on the resources available. The more approaches applied, the higher one's confidence in the accuracy of the assessment results.
 
 In my research, I applied SGSEAM to Makahiki in order to gain better insight into its strengths and weaknesses as a serious game framework. The {\em in-vivo} assessment approaches of pre-post effectiveness study, in-game surveys and post-hoc interviews were applied to the real-world Kukui Cup challenges created by the Makahiki framework, while the {\em in-vitro} assessment approaches of in-lab study used the UHM ICS691 serious game course to assess the experiences in game installation, game design and game development. 
 
@@ -90,7 +90,7 @@ The successful use of Makahiki in the Heroku cloud platform provided a good alte
 
 The application of SGSEAM to Makahiki effectively identified the strengths and weaknesses of Makahiki and provided improvement suggestions to Makahiki developers. It also revealed the strengths and weaknesses of SGSEAM as an assessment method. 
 
-The strengths of SGSEAM includes: 1) the identification of the five categories of serious game stakeholders that are affected by a serious game framework; 2) a three-step process and the clearly defined corresponding deliverables helping the assessors to carry out the assessment; 3) the flexibility of choosing from a set of additive assessment approaches; 4) the step of creating the assessment plan helps to discover shortcomings of the framework from a data collection's perspective.
+The strengths of SGSEAM includes: 1) the identification of the five categories of serious game stakeholders that are affected by a serious game framework; 2) complete coverage of serious game lifecycle than other methods; 3) a three-step process and the clearly defined corresponding deliverables helping the assessors to carry out the assessment; 4) the flexibility of choosing from a set of additive assessment approaches; 5) the step of creating the assessment plan helps to discover shortcomings of the framework from a data collection's perspective.
 
 The weaknesses of SGSEAM include: 1) the process is expensive and time consuming; 2) the player effectiveness approaches does not assess the framework by itself, instead, it assess the combined result of the framework and game content; 3) the small sample size of the post-hoc interview approaches; 4) difficult or expensive to carry out in-lab experiments for system admin for the real system admin skill set.
 
@@ -119,6 +119,12 @@ To expand the use of Makahiki in the K-12 school environment requires suitable c
 
 Expanding Makahiki into other geographical locations, such as outside of Hawaii, will mainly involve content changing and creation. In the case of locations with different languages, the Makahiki software will need to be internationalized. 
 
+\subsection{Adoption of Makahiki for collegiate sustainability competitions}
+
+Makahiki can be easily adopted by universities to create feature-rich sustainability competitions. The universities which currently use the BuildingDashboard system from Lucid design group for their sustainability competitions can use Makahiki for free, thus gaining substantial dollar savings from not buying the commercial framework. The competitions created by Makahiki also have richer features than the BuildingDashboard. 
+
+On the other hand, creating an engaging game with Makahiki requires additional time investments to configure the game and add new educational features. The educational content needs to be tailored to their geographically locations.
+
 \subsection{Use in other PaaS Cloud platforms}
 Makahiki currently only supports deployment on the Heroku cloud platform. With the recent increasing usage of different cloud infrastructure in organizations, there will be a need for organizations to run Makahiki in the same cloud platforms as their other current  applications or their preferred cloud platforms other than Heroku. 
 
@@ -136,8 +142,12 @@ Docker \cite{docker} is an interesting open source technology that provides cont
 
 Makahiki could utilize Docker technology to provide a pre-configured Docker container. An organization will just download this container and deploy to any cloud infrastructure they prefer with minimum installation or configuration effort. Once deployed, the organization can take advantage of the cloud infrastructure to dynamically manage the computing resources for the Makahiki game instance.
 
+\subsection{Enhancement to SGSEAM}
+
+The Makahiki game interface is comprised of several mini-games. The current SGSEAM approaches assess the player experience of the game instance as a whole. More detailed assessment approaches targeting individual mini-games in a Makahiki instance may reveal insights into the effectiveness of individual mini-games, thus provide insights for a game designer to choose or customize a mini-game in Makahiki.
+
 \subsection{Enhancement to Makahiki framework}
-Lastly, Makahiki framework would benefit from further enhancement. Some of the enhancement projects for Makahiki that we believe would be interesting and useful for the framework include:
+Lastly, the Makahiki framework would benefit from further enhancement. Some of the enhancement projects for Makahiki that we believe would be interesting and useful for the framework include:
 
 \subsubsection{Real-time player awareness}
 Currently it is not possible in Makahiki to know who is currently online and playing the game. Creating this awareness opens up new social gaming opportunities (performing tasks together), new opportunities for communication (chat windows), and potentially entirely new games (play against another online player). 

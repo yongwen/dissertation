@@ -22,19 +22,22 @@ The current version of Makahiki (Version 2) builds upon the prior version with t
 \item Support for PaaS (Platform as a Service) facilities such as Heroku. This enables organizations to create and deploy challenges without obtaining physical hardware and its requisite IT support.
 \end{itemize}
 
+The design of Makahiki follows closely the serious game lifecycle using a framework as illustrated in \autoref{fig:serious-game-lifecycle}. In Makahiki, the system admins install or create a new default game instance by instantiating from the Makahiki framework; then the game designers configure or customize the instance according to their organization's specific needs. if needed, the game developers extend the instance by adding new game widgets. The system admins deploy the finalized instance to the infrastructure of the choice of the organization, either locally or to the cloud. Once the game instance is deployed and running, the game managers can manage the game and the players play the game. In Makahiki, the game analytics are available realtime during the game and after the game. 
 
-The next section describes Makahiki as it is viewed by external users of the system.
+The next section describes Makahiki as it is viewed by the user roles in a serious game lifecycle using the Makahiki framework.
 
 \section{System Description}
 \label{sec:makahiki-design-description}
 
-This section describes Makahiki from the perspectives of different users. It first describes the installation process from the system administrator's view, followed by the descriptions of different system interfaces to players, system admins, game designers, game managers and developers.
+This section describes Makahiki from the perspectives of different user roles. It first describes the installation process from the system administrator's view, followed by the descriptions of different system interfaces to players, game designers, game managers and developers.
  
-\subsection{Software Installation}
+\subsection{System Admin Interface}
 
-This section describes the installation process of the Makahiki system from the perspective of system administrators. The design goal is to make installation an easy process and to support multiple installation platforms. Different organizations can choose the best installation method that is suitable for them depending on their infrastructure and IT support capacity. 
+This section describes the system admin interface of the Makahiki system from the perspective of system administrators. It includes the software installation which is part of the game instantiation, and the deployment of the instance.
 
-Makahiki supports two forms of installation: local (on your own machine) and cloud-based (to the Heroku application hosting service). Organizations can install Makahiki locally if they wish to host the system themselves. This requires sufficient hardware resources and IT support to do the installation, perform backups, and monitor the system during the challenge and deal with any outages that occur.
+The design goal Makahiki installation and deployment is to make it an easy process to support different IT infrastructure. Different organizations can choose the best installation and deployment methods that are suitable for them depending on their infrastructure and IT support capacity. 
+
+Makahiki supports two forms of installation and deployment: local (on your own machine) and cloud-based (to the Heroku application hosting service). Organizations can install Makahiki locally if they wish to host the system themselves. This requires sufficient hardware resources and IT support to do the installation, perform backups, and monitor the system during the challenge and deal with any outages that occur.
 
 Organizations can instead choose to host Makahiki with Heroku\cite{heroku}, a popular cloud-based Platform as Service (PAAS).  Like most cloud services, this type of installation incurs a cost depending on the service level, but has the benefit that no hardware or IT resources are required.
 
@@ -74,6 +77,46 @@ Organizations can instead choose to host Makahiki with Heroku\cite{heroku}, a po
 The main difference between local and cloud installation is step 2, ``Install tools and dependencies''. For a local install, all the tools and dependencies will need to be installed manually by system administrators, including the C compiler, Pip and Virtual environment, Python imaging library, memcache as the caching system, and finally the PostgreSQL database, as well as the configuration of the database. This requires adequate skills from system administrators. On the other hand, cloud installation only requires the installation of a single Heroku client. In the case of cloud installation, all  Makahiki dependencies including the PostgreSQL database are satisfied by the instance created in the Heroku cloud, thus minimizing the involvement of system administrators. 
 
 Some organizations may want to use HTTPS / SSL to secure communication between the player browser and the website. In the local installation scenario, the system administrator can install a web server such as Apache or Nginx, then configure and enable HTTPS with SSL, and finally configure to route web requests from the web server to the Django application process. Although a fairly standard web server configuration, this local installation step requires a certain level of skill and effort. In contrast, running a Heroku client command ``heroku install addons:add ssl'' enables the SSL add-on for the application when using cloud-based hosting. For more details, please see the Makahiki installation guide \cite{makahiki-manual} chapter 2.
+
+After the instance is created, the system admin can use the system admin interface to configure the system related settings, such as   authentication, wattdepot server connectivity, and email server. \autoref{fig:makahiki-sys-settings} shows the system admin interface.
+
+\begin{figure}[!ht]
+\begin{center}
+\epsfig{file=guided-tour-sys-settings, width=1\columnwidth}
+\end{center}
+\caption{System Admin Settings Page}
+\label{fig:makahiki-sys-settings}
+\end{figure}
+
+\subsection{Game Designer Admin Interface}
+
+Game designers use the ``Challenge Design'' admin interface to design and configure the game related settings. There are two categories of settings, one is the challenge settings, the other is the game settings. 
+
+The challenge settings define the global configuration of the challenge such as the name and logo of the challenge, the round definition and the point system. The player settings are also defined in this section, as well as other configurable settings such as page, help, templates and the smart grid game content library. 
+
+The game settings define the configurations for each individual games and game mechanics in Makahiki. \autoref{fig:makahiki-designer-settings} shows the challenge design interface.
+
+\begin{figure}[!ht]
+\begin{center}
+\epsfig{file=guided-tour-designer-settings, width=1\columnwidth}
+\end{center}
+\caption{Challenge Design Settings Page}
+\label{fig:makahiki-designer-settings}
+\end{figure}
+
+\clearpage
+
+Makahiki provides a Smart Grid Game Designer page  for game designers to design the smart grid game. It provides a WYSIWYG interface to create educational content, design the grid layout and levels. Game designers use this page to construct the Smart Grid Game, by dragging and dropping the squares (game actions) into the grid with the intended layout. The interface is shown in \autoref{fig:makahiki-designer}:
+
+\begin{figure}[!ht]
+\begin{center}
+\epsfig{file=guided-tour-designer, width=1\columnwidth}
+\end{center}
+\caption{Smart Grid Game Designer Page}
+\label{fig:makahiki-designer}
+\end{figure}
+
+\clearpage
 
 \subsection{Player Interface}
 
@@ -238,7 +281,6 @@ On the right side, the ``Water Goal Game Scoreboard'' shows the leaders in water
 
 \clearpage
 
-
 \subsubsection{News Page}
 
 The ``News'' page provides information about the state of the challenge and the team of which this player is a member, as shown in \autoref{fig:makahiki-news}:
@@ -327,54 +369,9 @@ The final page available to players is the Help page, which simply provides acce
 
 \clearpage
 
-\subsection{Admin Interface}
-The admin interface is used by System admin, Game designers, Game managers and Developers.
+\subsection{Game Manager Admin Interface}
 
-\subsubsection{Settings Page}
-
-The settings page is restricted to administrators, as shown in \autoref{fig:makahiki-settings}: 
-
-\begin{figure}[!ht]
-\begin{center}
-\epsfig{file=guided-tour-settings, width=1\columnwidth}
-\end{center}
-\caption{Settings Page}
-\label{fig:makahiki-settings}
-\end{figure}
-
-Administrators use the Settings page to configure the site, design the challenge, manage a running challenge, generate analytics after the challenge is over, and support new development. The four functional buttons can be used separately by the four types of administrators of the system: system admins, game designers, game managers and developers. 
-
-\clearpage
-
-System admins use the ``Site configuration'' button to configure the site related to the authentication, wattdepot server connectivity, and the email. \autoref{fig:makahiki-sys-settings} shows the system admin interface.
-
-\begin{figure}[!ht]
-\begin{center}
-\epsfig{file=guided-tour-sys-settings, width=1\columnwidth}
-\end{center}
-\caption{System Admin Settings Page}
-\label{fig:makahiki-sys-settings}
-\end{figure}
-
-\clearpage
-
-Game designers use the ``Challenge Design'' button to design and configure the game related settings. There are two categories of settings, one is the challenge settings, the other is the game settings. 
-
-The challenge settings define the global configuration of the challenge such as the name and logo of the challenge, the round definition and the point system. The player settings are also defined in this section, as well as other configurable settings such as page, help, templates and the smart grid game content library. 
-
-The game settings define the configurations for each individual games and game mechanics in Makahiki. \autoref{fig:makahiki-designer-settings} shows the challenge design interface.
-
-\begin{figure}[!ht]
-\begin{center}
-\epsfig{file=guided-tour-designer-settings, width=1\columnwidth}
-\end{center}
-\caption{Challenge Design Settings Page}
-\label{fig:makahiki-designer-settings}
-\end{figure}
-
-\clearpage
-
-A game manager uses the ``Challenge Management'' button to manage the game. He can view and search the system logs to identify errors, view the goal status for energy and water usage reduction, monitor the wall postings from the players, etc. 
+A game manager uses the ``Challenge Management'' admin interface to manage the game. He can view and search the system logs to identify errors, view the goal status for energy and water usage reduction, monitor the wall postings from the players, etc. 
 
 In order to manage the individual games in the challenge, a game manager uses the game management section for each game. For example, in the Energy and Water game section, he can view the energy and water usage in the case of the usage data is automatically retrieved from smart meters. In the case of not using smart meters, a game manager can use this interface to manually enter the usage data. 
 
@@ -392,7 +389,9 @@ One important task to manage the Smart grid game is to approve the submissions f
 
 \clearpage
 
-Developers use the ``Developers'' button to debug the system, add and configure new pages and games. \autoref{fig:makahiki-developer-settings} shows the developer interface.
+\subsection{Game Developer Admin Interface}
+
+Game developers use the ``Developer'' admin interface to debug the system, add and configure new pages and games. \autoref{fig:makahiki-developer-settings} shows the developer interface.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -404,25 +403,9 @@ Developers use the ``Developers'' button to debug the system, add and configure 
 
 \clearpage
 
-\subsubsection{Smart Grid Game Designer Page}
+\subsection{Game Analytics}
 
-The Smart Grid Game Designer page is also restricted to administrators, specifically, the game designers. It is designed to to help build the Smart Grid Game, as shown in \autoref{fig:makahiki-designer}:
-
-\begin{figure}[!ht]
-\begin{center}
-\epsfig{file=guided-tour-designer, width=1\columnwidth}
-\end{center}
-\caption{Smart Grid Game Designer Page}
-\label{fig:makahiki-designer}
-\end{figure}
-
-Game designers use this page to construct the Smart Grid Game, by dragging and dropping the squares (game actions) into the grid with the intended layout.
-
-\clearpage
-
-\subsubsection{Status Page}
-
-The ``Status'' page, also restricted to administrators, displays a large number of different widgets with various kinds of information about the state of an ongoing challenge. \autoref{fig:makahiki-status} shows a screenshot of part of the Status page:
+The ``Status'' page is restricted to administrators such as game designers and game managers. It provides the game analytics which displays numbers of analytics widgets about the state of an ongoing challenge and the results of the challenge. \autoref{fig:makahiki-status} shows a screenshot of part of the Status page:
 
 \begin{figure}[!ht]
 \begin{center}
